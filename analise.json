@@ -1,0 +1,63 @@
+{
+  "pedido_venda_produto": {
+    "cabecalho": {
+      "bloqueado": "N",
+      "codigo_cenario_impostos": "9764259847",
+      "codigo_cliente": 9765165032,
+      "codigo_parcela": "A34",
+      "codigo_pedido": 10120853337,
+      "data_previsao": "24/06/2025",
+      "etapa": "60",
+      "numero_pedido": "13090",
+      "origem_pedido": "ERP",
+      "qtde_parcelas": 1,
+      "quantidade_itens": 3
+    },
+    "infoCadastro": {
+      "autorizado": "S",
+      "cImpAPI": "N",
+      "cancelado": "N",
+      "dAlt": "24/06/2025",
+      "dFat": "24/06/2025",
+      "dInc": "24/06/2025",
+      "denegado": "N",
+      "devolvido": "S",
+      "devolvido_parcial": "S",
+      "faturado": "S",
+      "hAlt": "14:29:04",
+      "hFat": "14:29:04",
+      "hInc": "08:37:25",
+      "uAlt": "P000716793",
+      "uFat": "P000716793",
+      "uInc": "P000748442"
+    },
+    "informacoes_adicionais": {
+      "codProj": 9779703251,
+      "codVend": 9796440719,
+      "codigo_categoria": "1.03.98",
+      "codigo_conta_corrente": 9770899623,
+      "consumidor_final": "S",
+      "enviar_email": "N",
+      "enviar_pix": "N",
+      "numero_pedido_cliente": "2152724-1",
+      "utilizar_emails": "pfanfe_alcoa_danfe@alcoa.com.br"
+    },
+    "lista_parcelas": {
+      "parcela": [
+        {
+          "data_vencimento": "04/08/2025",
+          "numero_parcela": 1,
+          "percentual": 100,
+          "quantidade_dias": 34,
+          "valor": 3429.8
+        }
+      ]
+    },
+    "observacoes": {
+      "obs_venda": "Pagamento: Somente no dia 04 de cada mês.|PAGAM ATRAVES DE TRANSFERENCIA"
+    },
+    "total_pedido": {
+      "valor_total_pedido": 3429.8
+    }
+  }
+}
