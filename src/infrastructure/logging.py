@@ -1,21 +1,21 @@
 # src/infrastructure/logging.py
 
-# 1. Imports da Biblioteca Padrão
+# 1. Imports da Biblioteca Padrao
 import logging
 import sys
 from logging.handlers import RotatingFileHandler
 
-# 2. Imports da Aplicação
+# 2. Imports da Aplicacao
 from src.config import CONFIG
 
 # ==============================================================================
-# INFRAESTRUTURA: SISTEMA DE LOGS
+# INFRAESTRUTURA: SISTEMA DE LOGS TOTVS
 # ==============================================================================
 
 class CustomFormatter(logging.Formatter):
     """
     Formatador personalizado para adicionar cores ao terminal.
-    Ajuda a distinguir visualmente Erros (Vermelho) de Informações (Verde).
+    Ajuda a distinguir visualmente Erros (Vermelho) de Informacoes (Verde).
     """
     
     gray = "\x1b[38;20m"
@@ -25,8 +25,8 @@ class CustomFormatter(logging.Formatter):
     green = "\x1b[32;20m"
     reset = "\x1b[0m"
     
-    # Formato: Hora | Nível | (Arquivo:Linha) | Mensagem
-    fmt = "%(asctime)s | %(levelname)-8s | (%(filename)s:%(lineno)d) | %(message)s"
+    # Formato rigoroso com precisao de milissegundos para cronometrar cada etapa
+    fmt = "[%(asctime)s.%(msecs)03d] | %(levelname)-8s | (%(filename)s:%(lineno)d) | %(message)s"
 
     FORMATS = {
         logging.DEBUG: gray + fmt + reset,
@@ -38,34 +38,36 @@ class CustomFormatter(logging.Formatter):
 
     def format(self, record):
         log_fmt = self.FORMATS.get(record.levelno)
-        # Data no formato Hora:Minuto:Segundo
-        formatter = logging.Formatter(log_fmt, datefmt='%H:%M:%S')
+        # Data no formato Ano-Mes-Dia Hora:Minuto:Segundo para facilitar auditoria
+        formatter = logging.Formatter(log_fmt, datefmt='%Y-%m-%d %H:%M:%S')
         return formatter.format(record)
 
 def setup_logger() -> logging.Logger:
     """
-    Configura e retorna uma instância única do logger.
-    Configura rotação de arquivos (20MB) e saída colorida no console.
+    Configura e retorna uma instancia unica do logger.
+    Configura rotacao de arquivos (20MB) e saida colorida no console.
     """
     
-    logger = logging.getLogger(CONFIG.APP_NAME)
+    # Renomeado para refletir o novo sistema
+    logger = logging.getLogger("AcosVital_TOTVS")
     logger.setLevel(logging.DEBUG)
     
-    # Limpa handlers anteriores para evitar logs duplicados se a função for chamada novamente
+    # Limpa handlers anteriores para evitar logs duplicados se a funcao for chamada novamente
     if logger.hasHandlers():
         logger.handlers.clear()
 
-    # 1. Criação da pasta de logs (Segurança)
+    # 1. Criacao da pasta de logs (Seguranca)
     try:
         CONFIG.LOG_DIR.mkdir(parents=True, exist_ok=True)
     except Exception as e:
-        print(f"ERRO CRÍTICO: Não foi possível criar pasta de logs: {e}")
+        print(f"ERRO CRITICO: Nao foi possivel criar pasta de logs: {e}")
 
     # 2. FILE HANDLER (Arquivo de Texto)
-    # Rotação de 20MB, mantém os últimos 10 arquivos
+    # Rotacao de 20MB, mantem os ultimos 10 arquivos
     try:
+        # Formato de arquivo tambem com milissegundos para rastreabilidade de tempo exato
         file_formatter = logging.Formatter(
-            '%(asctime)s | %(levelname)-8s | [%(funcName)s] %(message)s',
+            fmt='[%(asctime)s.%(msecs)03d] | %(levelname)-8s | [%(funcName)s] %(message)s',
             datefmt='%Y-%m-%d %H:%M:%S'
         )
         
@@ -81,7 +83,7 @@ def setup_logger() -> logging.Logger:
         logger.addHandler(file_handler)
         
     except Exception as e:
-        print(f"⚠️ Aviso: Não foi possível configurar log em arquivo: {e}")
+        print(f"AVISO: Nao foi possivel configurar log em arquivo: {e}")
 
     # 3. CONSOLE HANDLER (Terminal Colorido)
     console_handler = logging.StreamHandler(sys.stdout)
@@ -91,6 +93,6 @@ def setup_logger() -> logging.Logger:
 
     return logger
 
-# Instância Singleton
-# Ao fazer "from src.infrastructure.logging import logger", você recebe esta instância pronta.
+# Instancia Singleton
+# Ao fazer "from src.infrastructure.logging import logger", voce recebe esta instancia pronta.
 logger = setup_logger()
