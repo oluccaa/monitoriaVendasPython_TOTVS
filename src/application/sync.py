@@ -25,10 +25,16 @@ class SyncService:
         self.max_batch_size = 200
 
     def _gerar_hash_pedido(self, pedido: Dict[str, Any]) -> str:
-        """Gera um hash MD5 baseado nos valores essenciais do pedido TOTVS para detectar atualizações."""
-        raw_string = f"{pedido.get('orderid', '')}{pedido.get('issuedate', '')}{pedido.get('amount', '')}{pedido.get('sellerid', '')}{pedido.get('customername', '')}"
+        """Gera um hash MD5 blindado contra falhas de tipagem ou valores None."""
+        orderid = str(pedido.get('orderid', '')).strip()
+        issuedate = str(pedido.get('issuedate', '')).strip()
+        amount = str(pedido.get('amount', 0.0)).strip()
+        sellerid = str(pedido.get('sellerid', '')).strip()
+        customername = str(pedido.get('customername', '')).strip()
+        
+        raw_string = f"{orderid}_{issuedate}_{amount}_{sellerid}_{customername}"
         return hashlib.md5(raw_string.encode('utf-8')).hexdigest()
-
+    
     def process_totvs_payload(self, pedidos_totvs: List[Dict[str, Any]]):
         """
         Recebe o payload bruto do TOTVS, agrupa por vendedor e período,

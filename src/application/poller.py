@@ -1,4 +1,4 @@
-# src/application/watcher.py
+# src/application/poller.py
 
 # 1. Imports da Biblioteca Padrao
 import time
@@ -19,12 +19,11 @@ if TYPE_CHECKING:
 class TOTVSPoller:
     def __init__(self, totvs_client: 'TOTVSClient', sync_service: 'SyncService', interval_seconds: int = 60):
         """
-        Substitui o antigo Watchdog. Em vez de ler arquivos alterados, 
-        esta classe consulta ativamente a API do TOTVS em intervalos regulares.
+        Orquestra a consulta ativa a API do TOTVS em intervalos regulares.
         
         Args:
             totvs_client: Cliente HTTP para buscar dados no TOTVS.
-            sync_service: Servico responsavel pelo Delta e envio ao Supabase.
+            sync_service: Servico responsavel pelo Delta e envio ao banco.
             interval_seconds: Tempo de espera entre cada consulta.
         """
         self.totvs_client = totvs_client
@@ -40,16 +39,24 @@ class TOTVSPoller:
         try:
             while self._is_running:
                 self._run_cycle()
-                
-                # Pausa antes da proxima verificacao
-                logger.info(f"[POLLER] Aguardando {self.interval_seconds}s para a proxima verificacao...")
-                time.sleep(self.interval_seconds)
+                self._sleep_interruptible()
                 
         except KeyboardInterrupt:
             self.stop()
         except Exception as e:
             logger.critical(f"[SISTEMA] Erro catastrofico no loop de polling: {str(e)}", exc_info=True)
             self.stop()
+
+    def _sleep_interruptible(self):
+        """
+        Dorme em fragmentos de 1 segundo para permitir encerramento rapido (Graceful Shutdown).
+        Evita o bloqueio da thread principal caso o usuario interrompa o processo via CTRL+C.
+        """
+        logger.info(f"[POLLER] Aguardando {self.interval_seconds}s para a proxima verificacao...")
+        for _ in range(self.interval_seconds):
+            if not self._is_running:
+                break
+            time.sleep(1)
 
     def stop(self):
         """Encerra o loop de monitoramento de forma graciosa."""
