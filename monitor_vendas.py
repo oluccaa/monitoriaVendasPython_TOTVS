@@ -1,9 +1,9 @@
 # monitor_vendas.py
 
-# 1. Imports da Biblioteca Padrao
 import sys
 import time
 import os
+from pathlib import Path
 
 # ==============================================================================
 # IMPORTACOES DA NOVA ARQUITETURA (DDD)
@@ -20,14 +20,12 @@ try:
     
     # 3. Aplicacao (Orquestracao)
     from src.application.sync import SyncService
-    
-    # Assumindo que voce renomeou o watcher.py para poller.py conforme discutimos
     from src.application.poller import TOTVSPoller
 
 except ImportError as e:
     print(f"[ERRO CRITICO DE IMPORTACAO] {e}")
-    print("Verifique se a pasta 'src' existe e tem os arquivos configurados corretamente.")
-    print("Dica: Execute este script da raiz do projeto (onde esta o arquivo .env).")
+    print("Certifique-se de que instalou as dependencias: pip install python-dotenv requests supabase")
+    print("Verifique se a pasta 'src' contem os arquivos __init__.py.")
     sys.exit(1)
 
 # ==============================================================================
@@ -35,7 +33,7 @@ except ImportError as e:
 # ==============================================================================
 
 def run_system():
-    """Inicializacao com Injeção de Dependencias e Resiliencia."""
+    """Inicializacao com Injecao de Dependencias e Resiliencia."""
     
     logger.info("===================================================")
     logger.info(f"   [{CONFIG.APP_NAME.upper()}] - INICIANDO SISTEMA   ")
@@ -43,22 +41,26 @@ def run_system():
 
     # 1. Inicializacao de Infraestrutura
     try:
+        # Garante que o diretorio do banco de dados existe antes de conectar
+        CONFIG.DB_PATH.parent.mkdir(parents=True, exist_ok=True)
         repo = DatabaseRepository(CONFIG.DB_PATH)
-        logger.info("[SQLITE] Banco local de cache iniciado com sucesso.")
+        logger.info(f"[SQLITE] Banco local iniciado em: {CONFIG.DB_PATH}")
     except Exception as e:
         logger.critical(f"[FATAL] Erro ao conectar no cache local: {e}")
         return
 
     # --- CONEXAO SUPABASE ---
     try:
+        # O cliente Supabase sera usado para persistencia e logs de importacao
         client = SupabaseRepository()
-        logger.info("[SUPABASE] Cliente conectado com sucesso.")
+        logger.info("[SUPABASE] Cliente configurado e conectado.")
     except Exception as e:
         logger.critical(f"[FATAL] Erro ao conectar no Supabase: {e}")
         return
 
     # --- CONEXAO TOTVS ---
     try:
+        # Cliente REST para consumo do endpoint da Acos Vital
         totvs_client = TOTVSClient(
             base_url=CONFIG.TOTVS_URL,
             username=CONFIG.TOTVS_USER,
@@ -70,9 +72,10 @@ def run_system():
         return
 
     # 2. Inicializacao dos Servicos
+    # O SyncService gerencia a lógica de Delta (Novos vs Existentes)
     sync_service = SyncService(repo, client)
     
-    # O Poller assume o papel do antigo SentinelEventHandler/Observer
+    # O Poller gerencia o intervalo de tempo entre as buscas na API
     poller = TOTVSPoller(
         totvs_client=totvs_client,
         sync_service=sync_service,
@@ -84,26 +87,25 @@ def run_system():
     # ==========================================================================
     try:
         logger.info("[SISTEMA] Inicializacao concluida. Iniciando motor de Polling...")
-        # O metodo start() contem o laco while True e bloqueara a execucao aqui
-        poller.start() 
+        poller.start()
         
     except KeyboardInterrupt:
         logger.info("[SISTEMA] Desligamento solicitado pelo usuario via teclado.")
         poller.stop()
     except Exception as e:
-        logger.critical(f"[SISTEMA] Erro catastrofico no loop principal: {e}", exc_info=True)
+        logger.critical(f"[SISTEMA] Erro catastrófico no loop principal: {e}", exc_info=True)
         poller.stop()
     finally:
-        logger.info("[SISTEMA] Processo encerrado. Ate logo.")
+        logger.info("[SISTEMA] Processo encerrado de forma segura.")
 
 if __name__ == "__main__":
-    # Customiza o titulo da janela no Windows
+    # Customiza o titulo da janela no Windows para facilitar identificacao
     if os.name == 'nt':
         os.system(f"title {CONFIG.APP_NAME}")
     
-    # Parametro util para inicializacao via agendador de tarefas do Windows (Task Scheduler)
+    # Delay util para aguardar rede em caso de boot automatico do Windows
     if "--boot" in sys.argv:
-        logger.info("[BOOT] Aguardando estabilizacao de rede do sistema operacional (30s)...")
+        logger.info("[BOOT] Aguardando estabilizacao de rede (30s)...")
         time.sleep(30)
         
     run_system()
