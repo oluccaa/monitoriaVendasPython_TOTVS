@@ -1,0 +1,16 @@
+[
+    {
+        "importacao_id": "0a6af50b-635d-4164-a5b8-c9b68172574c",
+        "orderid": "000624",
+        "issuedate": "2026-03-02",
+        "sellerid": "000059",
+        "amount": 3789.81,
+        "sellername": "RODRIGO APARECIDO BERNADINO",
+        "customername": "LCS PROJETOS E INDUSTRIA ELETROMECANICA LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "63483876650622fb5cabe6a0b6cd55e9"
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "importacao_id": "260500d5-7fe4-4247-8c62-d8fb9bf3159d",
+        "orderid": "000729",
+        "issuedate": "2026-02-09",
+        "sellerid": "000042",
+        "amount": 41250.0,
+        "sellername": "YTALLO GUEDES PEREIRA",
+        "customername": "VALE S.A",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "193b86a30987d878fc6867fe71951760"
+    },
+    {
+        "importacao_id": "260500d5-7fe4-4247-8c62-d8fb9bf3159d",
+        "orderid": "000744",
+        "issuedate": "2026-02-25",
+        "sellerid": "000042",
+        "amount": 24720.0,
+        "sellername": "YTALLO GUEDES PEREIRA",
+        "customername": "VALE S.A",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "107979390b6224662a9ffcffcb12b1c1"
+    },
+    {
+        "importacao_id": "260500d5-7fe4-4247-8c62-d8fb9bf3159d",
+        "orderid": "000763",
+        "issuedate": "2026-02-20",
+        "sellerid": "000042",
+        "amount": 8244.0,
+        "sellername": "YTALLO GUEDES PEREIRA",
+        "customername": "VALE S.A.",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "edc3b8b484d1b04d791f2e0528673e39"
+    }
+]

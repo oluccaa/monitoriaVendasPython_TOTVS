@@ -1,0 +1,44 @@
+[
+    {
+        "importacao_id": "cf5302d1-6b72-4e40-807f-2fa009b0d452",
+        "orderid": "000702",
+        "issuedate": "2026-03-03",
+        "sellerid": "000057",
+        "amount": 1352.0,
+        "sellername": "JORGE LUIZ",
+        "customername": "KALENBORN DO BRASIL LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "83d3cb7cfc1dcc34acdd0a5904cd67ac"
+    },
+    {
+        "importacao_id": "cf5302d1-6b72-4e40-807f-2fa009b0d452",
+        "orderid": "000789",
+        "issuedate": "2026-03-04",
+        "sellerid": "000057",
+        "amount": 2713.0,
+        "sellername": "JORGE LUIZ",
+        "customername": "KALENBORN DO BRASIL LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "08a92ec6a8a5bc642d3319f23002ea40"
+    },
+    {
+        "importacao_id": "cf5302d1-6b72-4e40-807f-2fa009b0d452",
+        "orderid": "000852",
+        "issuedate": "2026-03-05",
+        "sellerid": "000057",
+        "amount": 801.79,
+        "sellername": "JORGE LUIZ",
+        "customername": "WHITE MARTINS GASES INDUSTRIAIS LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "738c699b72029d14b5f028e01451b6c8"
+    }
+]

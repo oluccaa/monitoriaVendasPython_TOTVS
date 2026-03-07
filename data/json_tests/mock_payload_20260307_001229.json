@@ -1,0 +1,16 @@
+[
+    {
+        "importacao_id": "aa5d9ada-55bc-4025-a97b-060fa3ca1eff",
+        "orderid": "000607",
+        "issuedate": "2026-02-27",
+        "sellerid": "000015",
+        "amount": 100.0,
+        "sellername": "AGNALDO BARBOSA DE MORAIS JUNIOR",
+        "customername": "PREMOVALE PROJETOS E CONSTRUCOES LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "8d40a64b6a5a80d372648f1844e30195"
+    }
+]

@@ -1,0 +1,447 @@
+[2026-03-07 00:10:58.621] | INFO     | [run_system] ===================================================
+[2026-03-07 00:10:58.622] | INFO     | [run_system]    [ACOSVITAL_TOTVS_SYNC] - INICIANDO SISTEMA   
+[2026-03-07 00:10:58.622] | INFO     | [run_system] ===================================================
+[2026-03-07 00:10:58.622] | CRITICAL | [validate_config] [CONFIG] Erro: Faltam as seguintes variaveis no .env: SUPABASE_URL, SUPABASE_KEY
+[2026-03-07 00:11:48.074] | INFO     | [run_system] ===================================================
+[2026-03-07 00:11:48.074] | INFO     | [run_system]    [ACOSVITAL_TOTVS_SYNC] - INICIANDO SISTEMA   
+[2026-03-07 00:11:48.075] | INFO     | [run_system] ===================================================
+[2026-03-07 00:11:48.098] | INFO     | [_init_db] [DB] Banco de dados verificado e otimizado: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\totvs_cache.db
+[2026-03-07 00:11:48.098] | INFO     | [run_system] [SQLITE] Banco local iniciado em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\totvs_cache.db
+[2026-03-07 00:11:48.098] | INFO     | [__init__] [MOCK] Inicializando SupabaseRepository em MODO DE TESTE (JSON Local).
+[2026-03-07 00:11:48.099] | INFO     | [run_system] [SUPABASE] Cliente configurado e conectado com sucesso.
+[2026-03-07 00:11:48.099] | INFO     | [run_system] [TOTVS] Cliente REST configurado e validado.
+[2026-03-07 00:11:48.099] | INFO     | [run_system] [SISTEMA] Polling a cada 60s. Iniciando motor...
+[2026-03-07 00:11:48.099] | INFO     | [start] [SISTEMA] Modo Polling ativado. Consultando TOTVS a cada 60 segundos.
+[2026-03-07 00:11:48.100] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-07 00:11:48.100] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca de pedidos na API REST.
+[2026-03-07 00:11:52.019] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-07 00:11:55.340] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-07 00:11:57.690] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-07 00:11:59.996] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-07 00:12:02.417] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-07 00:12:04.799] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-07 00:12:07.182] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 7 processada. Registros: 100.
+[2026-03-07 00:12:10.680] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 8 processada. Registros: 46.
+[2026-03-07 00:12:10.681] | INFO     | [fetch_sales_orders] [TOTVS] Operacao concluida em 22.5812s. Total bruto: 746 registros.
+[2026-03-07 00:12:10.685] | INFO     | [_run_cycle] [POLLER] 746 pedidos carregados. Iniciando SyncService.
+[2026-03-07 00:12:10.685] | INFO     | [process_totvs_payload] [SYNC] Iniciando processamento de payload TOTVS.
+[2026-03-07 00:12:10.695] | INFO     | [_process_sync_group] [DELTA] ABNER LUIS CARDOSO RODRIGUES (2/2026): 34 novos, 0 atualizados.
+[2026-03-07 00:12:10.696] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para ABNER LUIS CARDOSO RODRIGUES. ID gerado: 9746ad31-87be-4c6a-8b1b-aa0588ab99bb
+[2026-03-07 00:12:10.697] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 34 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001210.json
+[2026-03-07 00:12:11.212] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 9746ad31-87be-4c6a-8b1b-aa0588ab99bb com status: SUCESSO
+[2026-03-07 00:12:11.213] | INFO     | [_process_sync_group] [DONE] ABNER LUIS CARDOSO RODRIGUES | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:11.216] | INFO     | [_process_sync_group] [DELTA] LEONARDO PRATES (2/2026): 19 novos, 0 atualizados.
+[2026-03-07 00:12:11.217] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LEONARDO PRATES. ID gerado: 7ff23467-b4ea-43a1-b011-ca92476cb8a8
+[2026-03-07 00:12:11.218] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 19 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001211.json
+[2026-03-07 00:12:11.734] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 7ff23467-b4ea-43a1-b011-ca92476cb8a8 com status: SUCESSO
+[2026-03-07 00:12:11.735] | INFO     | [_process_sync_group] [DONE] LEONARDO PRATES | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:11.738] | INFO     | [_process_sync_group] [DELTA] THALES FELIPE JARDIM COSTA (2/2026): 6 novos, 0 atualizados.
+[2026-03-07 00:12:11.738] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para THALES FELIPE JARDIM COSTA. ID gerado: b751fbca-239c-4498-8010-72f6fd187ffa
+[2026-03-07 00:12:11.739] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 6 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001211.json
+[2026-03-07 00:12:12.253] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso b751fbca-239c-4498-8010-72f6fd187ffa com status: SUCESSO
+[2026-03-07 00:12:12.254] | INFO     | [_process_sync_group] [DONE] THALES FELIPE JARDIM COSTA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:12.257] | INFO     | [_process_sync_group] [DELTA] PRISCILA YUMI SAMEZIMA MARC DE MOURA (2/2026): 17 novos, 0 atualizados.
+[2026-03-07 00:12:12.257] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para PRISCILA YUMI SAMEZIMA MARC DE MOURA. ID gerado: 97f325b0-a421-4a90-a446-af67004d0801
+[2026-03-07 00:12:12.259] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 17 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001212.json
+[2026-03-07 00:12:12.773] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 97f325b0-a421-4a90-a446-af67004d0801 com status: SUCESSO
+[2026-03-07 00:12:12.774] | INFO     | [_process_sync_group] [DONE] PRISCILA YUMI SAMEZIMA MARC DE MOURA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:12.777] | INFO     | [_process_sync_group] [DELTA] GABRIEL DE DEUS NICOLAU (2/2026): 21 novos, 0 atualizados.
+[2026-03-07 00:12:12.777] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para GABRIEL DE DEUS NICOLAU. ID gerado: 50d88d38-ce7b-4c18-bc64-a438f49ee647
+[2026-03-07 00:12:12.778] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 21 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001212.json
+[2026-03-07 00:12:13.299] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 50d88d38-ce7b-4c18-bc64-a438f49ee647 com status: SUCESSO
+[2026-03-07 00:12:13.300] | INFO     | [_process_sync_group] [DONE] GABRIEL DE DEUS NICOLAU | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:13.303] | INFO     | [_process_sync_group] [DELTA] LEONARDO MARQUES DIAS (2/2026): 4 novos, 0 atualizados.
+[2026-03-07 00:12:13.303] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LEONARDO MARQUES DIAS. ID gerado: ee71f5c4-d9fc-47c4-bedd-213e98148120
+[2026-03-07 00:12:13.304] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 4 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001213.json
+[2026-03-07 00:12:13.826] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso ee71f5c4-d9fc-47c4-bedd-213e98148120 com status: SUCESSO
+[2026-03-07 00:12:13.827] | INFO     | [_process_sync_group] [DONE] LEONARDO MARQUES DIAS | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:13.831] | INFO     | [_process_sync_group] [DELTA] LUCIANO DE OLIVEIRA DIAS (2/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:13.832] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LUCIANO DE OLIVEIRA DIAS. ID gerado: 8399856b-57cf-4888-8f40-e46acb2da36a
+[2026-03-07 00:12:13.833] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001213.json
+[2026-03-07 00:12:14.350] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 8399856b-57cf-4888-8f40-e46acb2da36a com status: SUCESSO
+[2026-03-07 00:12:14.350] | INFO     | [_process_sync_group] [DONE] LUCIANO DE OLIVEIRA DIAS | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:14.354] | INFO     | [_process_sync_group] [DELTA] TIAGO DE OLIVEIRA VIANA (2/2026): 5 novos, 0 atualizados.
+[2026-03-07 00:12:14.354] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para TIAGO DE OLIVEIRA VIANA. ID gerado: a6dd2933-c89b-4474-929c-51670ef538be
+[2026-03-07 00:12:14.355] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 5 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001214.json
+[2026-03-07 00:12:14.874] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso a6dd2933-c89b-4474-929c-51670ef538be com status: SUCESSO
+[2026-03-07 00:12:14.875] | INFO     | [_process_sync_group] [DONE] TIAGO DE OLIVEIRA VIANA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:14.878] | INFO     | [_process_sync_group] [DELTA] EDCARLOS SANTOS DE SOUZA (2/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:14.879] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para EDCARLOS SANTOS DE SOUZA. ID gerado: 6d356776-d70e-45cb-a3ea-d03b9a6b944d
+[2026-03-07 00:12:14.879] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001214.json
+[2026-03-07 00:12:15.396] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 6d356776-d70e-45cb-a3ea-d03b9a6b944d com status: SUCESSO
+[2026-03-07 00:12:15.396] | INFO     | [_process_sync_group] [DONE] EDCARLOS SANTOS DE SOUZA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:15.400] | INFO     | [_process_sync_group] [DELTA] VINICIUS ROVARIS LAIS PEREIRA (2/2026): 43 novos, 0 atualizados.
+[2026-03-07 00:12:15.400] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para VINICIUS ROVARIS LAIS PEREIRA. ID gerado: 8904bddb-eb4a-4861-85b5-1230a2c7dbec
+[2026-03-07 00:12:15.402] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 43 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001215.json
+[2026-03-07 00:12:15.923] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 8904bddb-eb4a-4861-85b5-1230a2c7dbec com status: SUCESSO
+[2026-03-07 00:12:15.923] | INFO     | [_process_sync_group] [DONE] VINICIUS ROVARIS LAIS PEREIRA | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:15.927] | INFO     | [_process_sync_group] [DELTA] JOAO VITOR MARTINS VENANCIO (2/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:15.927] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para JOAO VITOR MARTINS VENANCIO. ID gerado: 2e74a475-d11e-4d5b-8a23-e15c394d7502
+[2026-03-07 00:12:15.928] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001215.json
+[2026-03-07 00:12:16.449] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 2e74a475-d11e-4d5b-8a23-e15c394d7502 com status: SUCESSO
+[2026-03-07 00:12:16.450] | INFO     | [_process_sync_group] [DONE] JOAO VITOR MARTINS VENANCIO | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:16.454] | INFO     | [_process_sync_group] [DELTA] HUGO FELIPE DA MATA (2/2026): 6 novos, 0 atualizados.
+[2026-03-07 00:12:16.454] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para HUGO FELIPE DA MATA. ID gerado: 0093bc8e-ee05-4ba9-927e-ddea84d6f5cd
+[2026-03-07 00:12:16.455] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 6 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001216.json
+[2026-03-07 00:12:16.971] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 0093bc8e-ee05-4ba9-927e-ddea84d6f5cd com status: SUCESSO
+[2026-03-07 00:12:16.972] | INFO     | [_process_sync_group] [DONE] HUGO FELIPE DA MATA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:16.975] | INFO     | [_process_sync_group] [DELTA] LARISSA  ALMEIDA (2/2026): 20 novos, 0 atualizados.
+[2026-03-07 00:12:16.975] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LARISSA  ALMEIDA. ID gerado: 7b31e1d4-a849-441a-b186-4df4317ef9c8
+[2026-03-07 00:12:16.976] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 20 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001216.json
+[2026-03-07 00:12:17.491] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 7b31e1d4-a849-441a-b186-4df4317ef9c8 com status: SUCESSO
+[2026-03-07 00:12:17.491] | INFO     | [_process_sync_group] [DONE] LARISSA  ALMEIDA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:17.494] | INFO     | [_process_sync_group] [DELTA] SARALIGIA SIMOES DE SOUZA (2/2026): 10 novos, 0 atualizados.
+[2026-03-07 00:12:17.495] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para SARALIGIA SIMOES DE SOUZA. ID gerado: 084caa80-7c90-4667-98f8-7b9a4d9e85c3
+[2026-03-07 00:12:17.496] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 10 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001217.json
+[2026-03-07 00:12:18.020] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 084caa80-7c90-4667-98f8-7b9a4d9e85c3 com status: SUCESSO
+[2026-03-07 00:12:18.020] | INFO     | [_process_sync_group] [DONE] SARALIGIA SIMOES DE SOUZA | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:18.024] | INFO     | [_process_sync_group] [DELTA] THIAGO MONTEIRO (01/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:18.024] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para THIAGO MONTEIRO. ID gerado: 32233449-4ee1-4918-a4b5-ff24b9279613
+[2026-03-07 00:12:18.025] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001218.json
+[2026-03-07 00:12:18.541] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 32233449-4ee1-4918-a4b5-ff24b9279613 com status: SUCESSO
+[2026-03-07 00:12:18.542] | INFO     | [_process_sync_group] [DONE] THIAGO MONTEIRO | Periodo 01/2026 processado em 0.52s
+[2026-03-07 00:12:18.545] | INFO     | [_process_sync_group] [DELTA] RODRIGO FREIRE (2/2026): 25 novos, 0 atualizados.
+[2026-03-07 00:12:18.545] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para RODRIGO FREIRE. ID gerado: 8aefd0a2-acaf-42bd-82c1-2deed8d55c26
+[2026-03-07 00:12:18.546] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 25 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001218.json
+[2026-03-07 00:12:19.063] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 8aefd0a2-acaf-42bd-82c1-2deed8d55c26 com status: SUCESSO
+[2026-03-07 00:12:19.064] | INFO     | [_process_sync_group] [DONE] RODRIGO FREIRE | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:19.070] | INFO     | [_process_sync_group] [DELTA] LEIDIANE TEIXEIRA COSTA (2/2026): 4 novos, 0 atualizados.
+[2026-03-07 00:12:19.070] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LEIDIANE TEIXEIRA COSTA. ID gerado: a6fac9e6-dd84-4cdc-90b1-c7717e95e0ac
+[2026-03-07 00:12:19.071] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 4 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001219.json
+[2026-03-07 00:12:19.588] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso a6fac9e6-dd84-4cdc-90b1-c7717e95e0ac com status: SUCESSO
+[2026-03-07 00:12:19.589] | INFO     | [_process_sync_group] [DONE] LEIDIANE TEIXEIRA COSTA | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:19.593] | INFO     | [_process_sync_group] [DELTA] WILLIAN DAVID RODRIGUES CARVALHO (2/2026): 6 novos, 0 atualizados.
+[2026-03-07 00:12:19.594] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para WILLIAN DAVID RODRIGUES CARVALHO. ID gerado: 06cb4928-97c1-46d2-b103-5f037df79a4e
+[2026-03-07 00:12:19.595] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 6 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001219.json
+[2026-03-07 00:12:20.113] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 06cb4928-97c1-46d2-b103-5f037df79a4e com status: SUCESSO
+[2026-03-07 00:12:20.114] | INFO     | [_process_sync_group] [DONE] WILLIAN DAVID RODRIGUES CARVALHO | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:20.117] | INFO     | [_process_sync_group] [DELTA] LEONARDO APARECIDO DE MORAES (2/2026): 15 novos, 0 atualizados.
+[2026-03-07 00:12:20.117] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LEONARDO APARECIDO DE MORAES. ID gerado: febc645d-44c6-45dd-9ded-4c9c2efe4398
+[2026-03-07 00:12:20.118] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 15 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001220.json
+[2026-03-07 00:12:20.641] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso febc645d-44c6-45dd-9ded-4c9c2efe4398 com status: SUCESSO
+[2026-03-07 00:12:20.642] | INFO     | [_process_sync_group] [DONE] LEONARDO APARECIDO DE MORAES | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:20.647] | INFO     | [_process_sync_group] [DELTA] THIAGO MONTEIRO (2/2026): 10 novos, 0 atualizados.
+[2026-03-07 00:12:20.647] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para THIAGO MONTEIRO. ID gerado: ae407b65-d841-4c62-bf1c-ea01e5ea6622
+[2026-03-07 00:12:20.648] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 10 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001220.json
+[2026-03-07 00:12:21.167] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso ae407b65-d841-4c62-bf1c-ea01e5ea6622 com status: SUCESSO
+[2026-03-07 00:12:21.168] | INFO     | [_process_sync_group] [DONE] THIAGO MONTEIRO | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:21.171] | INFO     | [_process_sync_group] [DELTA] JOARES ALVES DOS SANTOS (2/2026): 37 novos, 0 atualizados.
+[2026-03-07 00:12:21.171] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para JOARES ALVES DOS SANTOS. ID gerado: c8627272-d6ab-4cb3-b1b3-c8bab6ba37c7
+[2026-03-07 00:12:21.173] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 37 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001221.json
+[2026-03-07 00:12:21.692] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso c8627272-d6ab-4cb3-b1b3-c8bab6ba37c7 com status: SUCESSO
+[2026-03-07 00:12:21.692] | INFO     | [_process_sync_group] [DONE] JOARES ALVES DOS SANTOS | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:21.696] | INFO     | [_process_sync_group] [DELTA] GABRIEL BARRETO (2/2026): 5 novos, 0 atualizados.
+[2026-03-07 00:12:21.696] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para GABRIEL BARRETO. ID gerado: 5ef2767c-b5ed-4757-ba99-34f4f3b68e84
+[2026-03-07 00:12:21.697] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 5 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001221.json
+[2026-03-07 00:12:22.213] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 5ef2767c-b5ed-4757-ba99-34f4f3b68e84 com status: SUCESSO
+[2026-03-07 00:12:22.214] | INFO     | [_process_sync_group] [DONE] GABRIEL BARRETO | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:22.217] | INFO     | [_process_sync_group] [DELTA] EBER VIEIRA (2/2026): 28 novos, 0 atualizados.
+[2026-03-07 00:12:22.217] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para EBER VIEIRA. ID gerado: e4b0aa31-6cbc-4efa-9749-d3ccbd1be2be
+[2026-03-07 00:12:22.219] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 28 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001222.json
+[2026-03-07 00:12:22.739] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso e4b0aa31-6cbc-4efa-9749-d3ccbd1be2be com status: SUCESSO
+[2026-03-07 00:12:22.739] | INFO     | [_process_sync_group] [DONE] EBER VIEIRA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:22.742] | INFO     | [_process_sync_group] [DELTA] SILAS ANTONIO SIMOES DE SOUZA (2/2026): 74 novos, 0 atualizados.
+[2026-03-07 00:12:22.743] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para SILAS ANTONIO SIMOES DE SOUZA. ID gerado: 7b54af0b-6aff-411a-b408-55ad490bbbb4
+[2026-03-07 00:12:22.745] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 74 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001222.json
+[2026-03-07 00:12:23.269] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 7b54af0b-6aff-411a-b408-55ad490bbbb4 com status: SUCESSO
+[2026-03-07 00:12:23.270] | INFO     | [_process_sync_group] [DONE] SILAS ANTONIO SIMOES DE SOUZA | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:23.273] | INFO     | [_process_sync_group] [DELTA] DANIEL SOUZA DA SILVA (2/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:23.273] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para DANIEL SOUZA DA SILVA. ID gerado: 69de38ec-9c8d-4141-ae40-fda0e8c3d925
+[2026-03-07 00:12:23.274] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001223.json
+[2026-03-07 00:12:23.790] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 69de38ec-9c8d-4141-ae40-fda0e8c3d925 com status: SUCESSO
+[2026-03-07 00:12:23.790] | INFO     | [_process_sync_group] [DONE] DANIEL SOUZA DA SILVA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:23.793] | INFO     | [_process_sync_group] [DELTA] ISAQUE CARVALHO DO ESPIRITO SANTOS (2/2026): 9 novos, 0 atualizados.
+[2026-03-07 00:12:23.794] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para ISAQUE CARVALHO DO ESPIRITO SANTOS. ID gerado: abfe11c0-240a-4719-9212-cc64ce6c2d97
+[2026-03-07 00:12:23.795] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 9 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001223.json
+[2026-03-07 00:12:24.311] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso abfe11c0-240a-4719-9212-cc64ce6c2d97 com status: SUCESSO
+[2026-03-07 00:12:24.312] | INFO     | [_process_sync_group] [DONE] ISAQUE CARVALHO DO ESPIRITO SANTOS | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:24.315] | INFO     | [_process_sync_group] [DELTA] ROBERTA SANTAS (2/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:24.316] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para ROBERTA SANTAS. ID gerado: d84eeac0-bcf2-4db2-8701-f885e22050ac
+[2026-03-07 00:12:24.317] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001224.json
+[2026-03-07 00:12:24.835] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso d84eeac0-bcf2-4db2-8701-f885e22050ac com status: SUCESSO
+[2026-03-07 00:12:24.835] | INFO     | [_process_sync_group] [DONE] ROBERTA SANTAS | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:24.839] | INFO     | [_process_sync_group] [DELTA] SILAS ANTONIO SIMOES DE SOUZA (01/2026): 2 novos, 0 atualizados.
+[2026-03-07 00:12:24.839] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para SILAS ANTONIO SIMOES DE SOUZA. ID gerado: 912a362d-190a-4c31-bc4f-49160157ce0a
+[2026-03-07 00:12:24.840] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 2 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001224.json
+[2026-03-07 00:12:25.355] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 912a362d-190a-4c31-bc4f-49160157ce0a com status: SUCESSO
+[2026-03-07 00:12:25.355] | INFO     | [_process_sync_group] [DONE] SILAS ANTONIO SIMOES DE SOUZA | Periodo 01/2026 processado em 0.52s
+[2026-03-07 00:12:25.359] | INFO     | [_process_sync_group] [DELTA] DIEGO JOSE ARANTES (2/2026): 6 novos, 0 atualizados.
+[2026-03-07 00:12:25.359] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para DIEGO JOSE ARANTES. ID gerado: 77ff1deb-c79f-44d0-a221-83e769bf5939
+[2026-03-07 00:12:25.361] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 6 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001225.json
+[2026-03-07 00:12:25.873] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 77ff1deb-c79f-44d0-a221-83e769bf5939 com status: SUCESSO
+[2026-03-07 00:12:25.873] | INFO     | [_process_sync_group] [DONE] DIEGO JOSE ARANTES | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:25.877] | INFO     | [_process_sync_group] [DELTA] WERES CLEY MARCELINO DE MOURA (2/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:25.877] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para WERES CLEY MARCELINO DE MOURA. ID gerado: b8098a78-c29b-4524-b0ca-47c4026f3d94
+[2026-03-07 00:12:25.878] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001225.json
+[2026-03-07 00:12:26.396] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso b8098a78-c29b-4524-b0ca-47c4026f3d94 com status: SUCESSO
+[2026-03-07 00:12:26.397] | INFO     | [_process_sync_group] [DONE] WERES CLEY MARCELINO DE MOURA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:26.400] | INFO     | [_process_sync_group] [DELTA] JAMES MADSON OLIVEIRA DE SOUZA (2/2026): 6 novos, 0 atualizados.
+[2026-03-07 00:12:26.400] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para JAMES MADSON OLIVEIRA DE SOUZA. ID gerado: 0f7bb3c6-01f4-49e0-9002-faac74d8b89d
+[2026-03-07 00:12:26.401] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 6 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001226.json
+[2026-03-07 00:12:26.919] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 0f7bb3c6-01f4-49e0-9002-faac74d8b89d com status: SUCESSO
+[2026-03-07 00:12:26.920] | INFO     | [_process_sync_group] [DONE] JAMES MADSON OLIVEIRA DE SOUZA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:26.923] | INFO     | [_process_sync_group] [DELTA] JORGE LUIZ (2/2026): 2 novos, 0 atualizados.
+[2026-03-07 00:12:26.923] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para JORGE LUIZ. ID gerado: 7c5865e9-8b3e-4cf4-ad21-de2167c366d1
+[2026-03-07 00:12:26.924] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 2 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001226.json
+[2026-03-07 00:12:27.444] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 7c5865e9-8b3e-4cf4-ad21-de2167c366d1 com status: SUCESSO
+[2026-03-07 00:12:27.444] | INFO     | [_process_sync_group] [DONE] JORGE LUIZ | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:27.448] | INFO     | [_process_sync_group] [DELTA] HUGO DOS SANTOS GONÇALVES (2/2026): 27 novos, 0 atualizados.
+[2026-03-07 00:12:27.448] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para HUGO DOS SANTOS GONÇALVES. ID gerado: 2cb0d42d-b197-4c8d-84c5-e1c472e66fa1
+[2026-03-07 00:12:27.449] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 27 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001227.json
+[2026-03-07 00:12:27.967] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 2cb0d42d-b197-4c8d-84c5-e1c472e66fa1 com status: SUCESSO
+[2026-03-07 00:12:27.967] | INFO     | [_process_sync_group] [DONE] HUGO DOS SANTOS GONÇALVES | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:27.970] | INFO     | [_process_sync_group] [DELTA] LARISSA  ALMEIDA (3/2026): 19 novos, 0 atualizados.
+[2026-03-07 00:12:27.971] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LARISSA  ALMEIDA. ID gerado: 1b9c888b-2e09-4df5-9cdf-1a9c8469a907
+[2026-03-07 00:12:27.972] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 19 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001227.json
+[2026-03-07 00:12:28.496] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 1b9c888b-2e09-4df5-9cdf-1a9c8469a907 com status: SUCESSO
+[2026-03-07 00:12:28.497] | INFO     | [_process_sync_group] [DONE] LARISSA  ALMEIDA | Periodo 3/2026 processado em 0.53s
+[2026-03-07 00:12:28.500] | INFO     | [_process_sync_group] [DELTA] DIEGO SOUSA SANTOS (2/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:28.501] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para DIEGO SOUSA SANTOS. ID gerado: 51c3d5ab-cc32-4d11-85f3-72714997d471
+[2026-03-07 00:12:28.501] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001228.json
+[2026-03-07 00:12:29.018] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 51c3d5ab-cc32-4d11-85f3-72714997d471 com status: SUCESSO
+[2026-03-07 00:12:29.018] | INFO     | [_process_sync_group] [DONE] DIEGO SOUSA SANTOS | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:29.022] | INFO     | [_process_sync_group] [DELTA] EDUARDO VITAL (2/2026): 12 novos, 0 atualizados.
+[2026-03-07 00:12:29.022] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para EDUARDO VITAL. ID gerado: 4eb4edf7-8337-4f8b-b046-42b06257fc0d
+[2026-03-07 00:12:29.024] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 12 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001229.json
+[2026-03-07 00:12:29.546] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 4eb4edf7-8337-4f8b-b046-42b06257fc0d com status: SUCESSO
+[2026-03-07 00:12:29.546] | INFO     | [_process_sync_group] [DONE] EDUARDO VITAL | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:29.550] | INFO     | [_process_sync_group] [DELTA] AGNALDO BARBOSA DE MORAIS JUNIOR (2/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:29.550] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para AGNALDO BARBOSA DE MORAIS JUNIOR. ID gerado: aa5d9ada-55bc-4025-a97b-060fa3ca1eff
+[2026-03-07 00:12:29.551] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001229.json
+[2026-03-07 00:12:30.072] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso aa5d9ada-55bc-4025-a97b-060fa3ca1eff com status: SUCESSO
+[2026-03-07 00:12:30.072] | INFO     | [_process_sync_group] [DONE] AGNALDO BARBOSA DE MORAIS JUNIOR | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:30.076] | INFO     | [_process_sync_group] [DELTA] LEONARDO APARECIDO DE MORAES (3/2026): 11 novos, 0 atualizados.
+[2026-03-07 00:12:30.076] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LEONARDO APARECIDO DE MORAES. ID gerado: 1a3eab9f-4c96-46c4-86a8-3d6fb11f1756
+[2026-03-07 00:12:30.077] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 11 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001230.json
+[2026-03-07 00:12:30.591] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 1a3eab9f-4c96-46c4-86a8-3d6fb11f1756 com status: SUCESSO
+[2026-03-07 00:12:30.592] | INFO     | [_process_sync_group] [DONE] LEONARDO APARECIDO DE MORAES | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:30.595] | INFO     | [_process_sync_group] [DELTA] RODRIGO FREIRE (3/2026): 18 novos, 0 atualizados.
+[2026-03-07 00:12:30.595] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para RODRIGO FREIRE. ID gerado: 664abbc9-e2a1-4e68-a812-4a750ca21cd5
+[2026-03-07 00:12:30.596] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 18 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001230.json
+[2026-03-07 00:12:31.116] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 664abbc9-e2a1-4e68-a812-4a750ca21cd5 com status: SUCESSO
+[2026-03-07 00:12:31.116] | INFO     | [_process_sync_group] [DONE] RODRIGO FREIRE | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:31.119] | INFO     | [_process_sync_group] [DELTA] VINICIUS ROVARIS LAIS PEREIRA (3/2026): 24 novos, 0 atualizados.
+[2026-03-07 00:12:31.119] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para VINICIUS ROVARIS LAIS PEREIRA. ID gerado: 18b74339-95dd-40f9-899f-f825aeb92db0
+[2026-03-07 00:12:31.121] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 24 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001231.json
+[2026-03-07 00:12:31.637] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 18b74339-95dd-40f9-899f-f825aeb92db0 com status: SUCESSO
+[2026-03-07 00:12:31.638] | INFO     | [_process_sync_group] [DONE] VINICIUS ROVARIS LAIS PEREIRA | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:31.641] | INFO     | [_process_sync_group] [DELTA] LEONARDO PRATES (3/2026): 22 novos, 0 atualizados.
+[2026-03-07 00:12:31.641] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LEONARDO PRATES. ID gerado: 52019f28-d9d4-4df4-b00c-448554a32bb2
+[2026-03-07 00:12:31.643] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 22 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001231.json
+[2026-03-07 00:12:32.157] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 52019f28-d9d4-4df4-b00c-448554a32bb2 com status: SUCESSO
+[2026-03-07 00:12:32.157] | INFO     | [_process_sync_group] [DONE] LEONARDO PRATES | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:32.161] | INFO     | [_process_sync_group] [DELTA] JOARES ALVES DOS SANTOS (3/2026): 16 novos, 0 atualizados.
+[2026-03-07 00:12:32.161] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para JOARES ALVES DOS SANTOS. ID gerado: 06c345c9-c79e-42bb-a7ba-df3dcec32d2c
+[2026-03-07 00:12:32.162] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 16 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001232.json
+[2026-03-07 00:12:32.681] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 06c345c9-c79e-42bb-a7ba-df3dcec32d2c com status: SUCESSO
+[2026-03-07 00:12:32.681] | INFO     | [_process_sync_group] [DONE] JOARES ALVES DOS SANTOS | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:32.685] | INFO     | [_process_sync_group] [DELTA] LEONARDO MARQUES DIAS (3/2026): 5 novos, 0 atualizados.
+[2026-03-07 00:12:32.686] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LEONARDO MARQUES DIAS. ID gerado: a3e5b94e-b47b-422f-a9a6-364ddd44c020
+[2026-03-07 00:12:32.687] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 5 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001232.json
+[2026-03-07 00:12:33.204] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso a3e5b94e-b47b-422f-a9a6-364ddd44c020 com status: SUCESSO
+[2026-03-07 00:12:33.205] | INFO     | [_process_sync_group] [DONE] LEONARDO MARQUES DIAS | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:33.208] | INFO     | [_process_sync_group] [DELTA] EBER VIEIRA (3/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:33.208] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para EBER VIEIRA. ID gerado: 7de2818c-5ead-495f-84ab-24334934f40e
+[2026-03-07 00:12:33.209] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001233.json
+[2026-03-07 00:12:33.729] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 7de2818c-5ead-495f-84ab-24334934f40e com status: SUCESSO
+[2026-03-07 00:12:33.730] | INFO     | [_process_sync_group] [DONE] EBER VIEIRA | Periodo 3/2026 processado em 0.53s
+[2026-03-07 00:12:33.733] | INFO     | [_process_sync_group] [DELTA] THIAGO MONTEIRO (3/2026): 7 novos, 0 atualizados.
+[2026-03-07 00:12:33.734] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para THIAGO MONTEIRO. ID gerado: 4789fbe8-d593-4ed0-9b9f-2ebe83cfee36
+[2026-03-07 00:12:33.735] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 7 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001233.json
+[2026-03-07 00:12:34.251] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 4789fbe8-d593-4ed0-9b9f-2ebe83cfee36 com status: SUCESSO
+[2026-03-07 00:12:34.252] | INFO     | [_process_sync_group] [DONE] THIAGO MONTEIRO | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:34.255] | INFO     | [_process_sync_group] [DELTA] SARALIGIA SIMOES DE SOUZA (3/2026): 5 novos, 0 atualizados.
+[2026-03-07 00:12:34.255] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para SARALIGIA SIMOES DE SOUZA. ID gerado: 345da5fe-fbea-418c-81f4-be411249c822
+[2026-03-07 00:12:34.256] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 5 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001234.json
+[2026-03-07 00:12:34.775] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 345da5fe-fbea-418c-81f4-be411249c822 com status: SUCESSO
+[2026-03-07 00:12:34.775] | INFO     | [_process_sync_group] [DONE] SARALIGIA SIMOES DE SOUZA | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:34.778] | INFO     | [_process_sync_group] [DELTA] LEIDIANE TEIXEIRA COSTA (3/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:34.779] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LEIDIANE TEIXEIRA COSTA. ID gerado: a671f7a3-c415-4e46-923a-06ea37fb0a36
+[2026-03-07 00:12:34.780] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001234.json
+[2026-03-07 00:12:35.299] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso a671f7a3-c415-4e46-923a-06ea37fb0a36 com status: SUCESSO
+[2026-03-07 00:12:35.300] | INFO     | [_process_sync_group] [DONE] LEIDIANE TEIXEIRA COSTA | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:35.304] | INFO     | [_process_sync_group] [DELTA] DIEGO SOUSA SANTOS (3/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:35.304] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para DIEGO SOUSA SANTOS. ID gerado: 71b0f2df-63a8-4968-8ea4-ae19ccaec7b2
+[2026-03-07 00:12:35.305] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001235.json
+[2026-03-07 00:12:35.817] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 71b0f2df-63a8-4968-8ea4-ae19ccaec7b2 com status: SUCESSO
+[2026-03-07 00:12:35.817] | INFO     | [_process_sync_group] [DONE] DIEGO SOUSA SANTOS | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:35.821] | INFO     | [_process_sync_group] [DELTA] RODRIGO APARECIDO BERNADINO (3/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:35.822] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para RODRIGO APARECIDO BERNADINO. ID gerado: 0a6af50b-635d-4164-a5b8-c9b68172574c
+[2026-03-07 00:12:35.822] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001235.json
+[2026-03-07 00:12:36.340] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 0a6af50b-635d-4164-a5b8-c9b68172574c com status: SUCESSO
+[2026-03-07 00:12:36.341] | INFO     | [_process_sync_group] [DONE] RODRIGO APARECIDO BERNADINO | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:36.345] | INFO     | [_process_sync_group] [DELTA] ABNER LUIS CARDOSO RODRIGUES (3/2026): 10 novos, 0 atualizados.
+[2026-03-07 00:12:36.345] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para ABNER LUIS CARDOSO RODRIGUES. ID gerado: a5133bbb-fbd9-4168-8649-5ef46eda5d09
+[2026-03-07 00:12:36.346] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 10 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001236.json
+[2026-03-07 00:12:36.862] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso a5133bbb-fbd9-4168-8649-5ef46eda5d09 com status: SUCESSO
+[2026-03-07 00:12:36.862] | INFO     | [_process_sync_group] [DONE] ABNER LUIS CARDOSO RODRIGUES | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:36.865] | INFO     | [_process_sync_group] [DELTA] SILAS ANTONIO SIMOES DE SOUZA (3/2026): 10 novos, 0 atualizados.
+[2026-03-07 00:12:36.865] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para SILAS ANTONIO SIMOES DE SOUZA. ID gerado: f46985db-0ee7-47fa-8f28-e114638a420f
+[2026-03-07 00:12:36.867] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 10 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001236.json
+[2026-03-07 00:12:37.384] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso f46985db-0ee7-47fa-8f28-e114638a420f com status: SUCESSO
+[2026-03-07 00:12:37.384] | INFO     | [_process_sync_group] [DONE] SILAS ANTONIO SIMOES DE SOUZA | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:37.387] | INFO     | [_process_sync_group] [DELTA] LUCIANO DE OLIVEIRA DIAS (3/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:37.388] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para LUCIANO DE OLIVEIRA DIAS. ID gerado: c0bb3e0d-0b55-4fcb-9d70-79b8bff6db2b
+[2026-03-07 00:12:37.388] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001237.json
+[2026-03-07 00:12:37.903] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso c0bb3e0d-0b55-4fcb-9d70-79b8bff6db2b com status: SUCESSO
+[2026-03-07 00:12:37.903] | INFO     | [_process_sync_group] [DONE] LUCIANO DE OLIVEIRA DIAS | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:37.906] | INFO     | [_process_sync_group] [DELTA] DIEGO JOSE ARANTES (3/2026): 6 novos, 0 atualizados.
+[2026-03-07 00:12:37.906] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para DIEGO JOSE ARANTES. ID gerado: 758fc2e0-b306-43d7-ba18-8ff854414cb2
+[2026-03-07 00:12:37.908] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 6 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001237.json
+[2026-03-07 00:12:38.427] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 758fc2e0-b306-43d7-ba18-8ff854414cb2 com status: SUCESSO
+[2026-03-07 00:12:38.428] | INFO     | [_process_sync_group] [DONE] DIEGO JOSE ARANTES | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:38.431] | INFO     | [_process_sync_group] [DELTA] EDUARDO VITAL (3/2026): 12 novos, 0 atualizados.
+[2026-03-07 00:12:38.432] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para EDUARDO VITAL. ID gerado: 7e51cebf-8219-43c8-a73a-8bce450b2e44
+[2026-03-07 00:12:38.434] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 12 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001238.json
+[2026-03-07 00:12:38.951] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 7e51cebf-8219-43c8-a73a-8bce450b2e44 com status: SUCESSO
+[2026-03-07 00:12:38.951] | INFO     | [_process_sync_group] [DONE] EDUARDO VITAL | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:38.954] | INFO     | [_process_sync_group] [DELTA] VENDEDOR PADRAO (3/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:38.955] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para VENDEDOR PADRAO. ID gerado: e5670d27-0fe8-4815-83b6-05275b0946b9
+[2026-03-07 00:12:38.956] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001238.json
+[2026-03-07 00:12:39.474] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso e5670d27-0fe8-4815-83b6-05275b0946b9 com status: SUCESSO
+[2026-03-07 00:12:39.474] | INFO     | [_process_sync_group] [DONE] VENDEDOR PADRAO | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:39.482] | INFO     | [_process_sync_group] [DELTA] HUGO DOS SANTOS GONÇALVES (3/2026): 13 novos, 0 atualizados.
+[2026-03-07 00:12:39.485] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para HUGO DOS SANTOS GONÇALVES. ID gerado: d8bde356-3404-4c3d-a265-db5c6d466261
+[2026-03-07 00:12:39.487] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 13 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001239.json
+[2026-03-07 00:12:40.005] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso d8bde356-3404-4c3d-a265-db5c6d466261 com status: SUCESSO
+[2026-03-07 00:12:40.005] | INFO     | [_process_sync_group] [DONE] HUGO DOS SANTOS GONÇALVES | Periodo 3/2026 processado em 0.53s
+[2026-03-07 00:12:40.009] | INFO     | [_process_sync_group] [DELTA] EDCARLOS SANTOS DE SOUZA (3/2026): 7 novos, 0 atualizados.
+[2026-03-07 00:12:40.009] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para EDCARLOS SANTOS DE SOUZA. ID gerado: e96c350a-a4f5-428c-8f6b-c28e0514075e
+[2026-03-07 00:12:40.010] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 7 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001239.json
+[2026-03-07 00:12:40.534] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso e96c350a-a4f5-428c-8f6b-c28e0514075e com status: SUCESSO
+[2026-03-07 00:12:40.534] | INFO     | [_process_sync_group] [DONE] EDCARLOS SANTOS DE SOUZA | Periodo 3/2026 processado em 0.53s
+[2026-03-07 00:12:40.538] | INFO     | [_process_sync_group] [DELTA] THALES FELIPE JARDIM COSTA (3/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:40.538] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para THALES FELIPE JARDIM COSTA. ID gerado: be2c3c89-fb4e-4b43-8281-5335876fcd81
+[2026-03-07 00:12:40.539] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001240.json
+[2026-03-07 00:12:41.055] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso be2c3c89-fb4e-4b43-8281-5335876fcd81 com status: SUCESSO
+[2026-03-07 00:12:41.056] | INFO     | [_process_sync_group] [DONE] THALES FELIPE JARDIM COSTA | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:41.059] | INFO     | [_process_sync_group] [DELTA] ISAQUE CARVALHO DO ESPIRITO SANTOS (3/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:41.059] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para ISAQUE CARVALHO DO ESPIRITO SANTOS. ID gerado: ddf2eb3c-f48f-4a53-a9a7-fcac4c06bafb
+[2026-03-07 00:12:41.060] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001241.json
+[2026-03-07 00:12:41.575] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso ddf2eb3c-f48f-4a53-a9a7-fcac4c06bafb com status: SUCESSO
+[2026-03-07 00:12:41.576] | INFO     | [_process_sync_group] [DONE] ISAQUE CARVALHO DO ESPIRITO SANTOS | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:41.579] | INFO     | [_process_sync_group] [DELTA] SOFIA KAZUE (3/2026): 6 novos, 0 atualizados.
+[2026-03-07 00:12:41.579] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para SOFIA KAZUE. ID gerado: e82bdf83-526a-44f7-bf7c-87d8a66b32d3
+[2026-03-07 00:12:41.580] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 6 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001241.json
+[2026-03-07 00:12:42.101] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso e82bdf83-526a-44f7-bf7c-87d8a66b32d3 com status: SUCESSO
+[2026-03-07 00:12:42.101] | INFO     | [_process_sync_group] [DONE] SOFIA KAZUE | Periodo 3/2026 processado em 0.53s
+[2026-03-07 00:12:42.106] | INFO     | [_process_sync_group] [DELTA] WILLIAN DAVID RODRIGUES CARVALHO (3/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:42.106] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para WILLIAN DAVID RODRIGUES CARVALHO. ID gerado: b7060444-abc2-41aa-9cf8-491846513047
+[2026-03-07 00:12:42.107] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001242.json
+[2026-03-07 00:12:42.623] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso b7060444-abc2-41aa-9cf8-491846513047 com status: SUCESSO
+[2026-03-07 00:12:42.623] | INFO     | [_process_sync_group] [DONE] WILLIAN DAVID RODRIGUES CARVALHO | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:42.626] | INFO     | [_process_sync_group] [DELTA] JAMES MADSON OLIVEIRA DE SOUZA (3/2026): 2 novos, 0 atualizados.
+[2026-03-07 00:12:42.627] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para JAMES MADSON OLIVEIRA DE SOUZA. ID gerado: 8791429b-b09a-4c6d-9a50-6822bcef9417
+[2026-03-07 00:12:42.628] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 2 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001242.json
+[2026-03-07 00:12:43.145] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 8791429b-b09a-4c6d-9a50-6822bcef9417 com status: SUCESSO
+[2026-03-07 00:12:43.146] | INFO     | [_process_sync_group] [DONE] JAMES MADSON OLIVEIRA DE SOUZA | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:43.149] | INFO     | [_process_sync_group] [DELTA] HUGO FELIPE DA MATA (3/2026): 9 novos, 0 atualizados.
+[2026-03-07 00:12:43.149] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para HUGO FELIPE DA MATA. ID gerado: d4070325-6374-40d1-9646-4e80735b4d00
+[2026-03-07 00:12:43.150] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 9 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001243.json
+[2026-03-07 00:12:43.673] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso d4070325-6374-40d1-9646-4e80735b4d00 com status: SUCESSO
+[2026-03-07 00:12:43.673] | INFO     | [_process_sync_group] [DONE] HUGO FELIPE DA MATA | Periodo 3/2026 processado em 0.53s
+[2026-03-07 00:12:43.677] | INFO     | [_process_sync_group] [DELTA] RAUL MARTINS VENANCIO (3/2026): 4 novos, 0 atualizados.
+[2026-03-07 00:12:43.677] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para RAUL MARTINS VENANCIO. ID gerado: b6887345-245e-43a4-8119-2aefc85011af
+[2026-03-07 00:12:43.678] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 4 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001243.json
+[2026-03-07 00:12:44.191] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso b6887345-245e-43a4-8119-2aefc85011af com status: SUCESSO
+[2026-03-07 00:12:44.192] | INFO     | [_process_sync_group] [DONE] RAUL MARTINS VENANCIO | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:44.195] | INFO     | [_process_sync_group] [DELTA] GABRIEL BARRETO (3/2026): 6 novos, 0 atualizados.
+[2026-03-07 00:12:44.195] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para GABRIEL BARRETO. ID gerado: 5062e459-bc77-413b-b8ef-0d4ad4b34453
+[2026-03-07 00:12:44.196] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 6 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001244.json
+[2026-03-07 00:12:44.715] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 5062e459-bc77-413b-b8ef-0d4ad4b34453 com status: SUCESSO
+[2026-03-07 00:12:44.715] | INFO     | [_process_sync_group] [DONE] GABRIEL BARRETO | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:44.719] | INFO     | [_process_sync_group] [DELTA] SOFIA KAZUE (2/2026): 7 novos, 0 atualizados.
+[2026-03-07 00:12:44.719] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para SOFIA KAZUE. ID gerado: a4d8232e-9a0d-4675-9b81-48cef8ed5a9c
+[2026-03-07 00:12:44.720] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 7 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001244.json
+[2026-03-07 00:12:45.247] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso a4d8232e-9a0d-4675-9b81-48cef8ed5a9c com status: SUCESSO
+[2026-03-07 00:12:45.247] | INFO     | [_process_sync_group] [DONE] SOFIA KAZUE | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:45.250] | INFO     | [_process_sync_group] [DELTA] YTALLO GUEDES PEREIRA (3/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:45.250] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para YTALLO GUEDES PEREIRA. ID gerado: 50aac5e7-41c4-47e7-a30d-47548d6b20ae
+[2026-03-07 00:12:45.253] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001245.json
+[2026-03-07 00:12:45.787] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 50aac5e7-41c4-47e7-a30d-47548d6b20ae com status: SUCESSO
+[2026-03-07 00:12:45.787] | INFO     | [_process_sync_group] [DONE] YTALLO GUEDES PEREIRA | Periodo 3/2026 processado em 0.54s
+[2026-03-07 00:12:45.793] | INFO     | [_process_sync_group] [DELTA] JORGE LUIZ (3/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:45.794] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para JORGE LUIZ. ID gerado: cf5302d1-6b72-4e40-807f-2fa009b0d452
+[2026-03-07 00:12:45.795] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001245.json
+[2026-03-07 00:12:46.310] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso cf5302d1-6b72-4e40-807f-2fa009b0d452 com status: SUCESSO
+[2026-03-07 00:12:46.310] | INFO     | [_process_sync_group] [DONE] JORGE LUIZ | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:46.314] | INFO     | [_process_sync_group] [DELTA] TIAGO DE OLIVEIRA VIANA (3/2026): 6 novos, 0 atualizados.
+[2026-03-07 00:12:46.314] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para TIAGO DE OLIVEIRA VIANA. ID gerado: 4092334f-6687-4869-8b6a-b5abca7a7a5a
+[2026-03-07 00:12:46.315] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 6 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001246.json
+[2026-03-07 00:12:46.832] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 4092334f-6687-4869-8b6a-b5abca7a7a5a com status: SUCESSO
+[2026-03-07 00:12:46.833] | INFO     | [_process_sync_group] [DONE] TIAGO DE OLIVEIRA VIANA | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:46.837] | INFO     | [_process_sync_group] [DELTA] YTALLO GUEDES PEREIRA (2/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:46.837] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para YTALLO GUEDES PEREIRA. ID gerado: 260500d5-7fe4-4247-8c62-d8fb9bf3159d
+[2026-03-07 00:12:46.838] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001246.json
+[2026-03-07 00:12:47.349] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 260500d5-7fe4-4247-8c62-d8fb9bf3159d com status: SUCESSO
+[2026-03-07 00:12:47.350] | INFO     | [_process_sync_group] [DONE] YTALLO GUEDES PEREIRA | Periodo 2/2026 processado em 0.52s
+[2026-03-07 00:12:47.352] | INFO     | [_process_sync_group] [DELTA] RAUL MARTINS VENANCIO (12/2025): 1 novos, 0 atualizados.
+[2026-03-07 00:12:47.353] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para RAUL MARTINS VENANCIO. ID gerado: efe2208c-9388-4276-a926-3f1f9f7f8a60
+[2026-03-07 00:12:47.353] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001247.json
+[2026-03-07 00:12:47.868] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso efe2208c-9388-4276-a926-3f1f9f7f8a60 com status: SUCESSO
+[2026-03-07 00:12:47.869] | INFO     | [_process_sync_group] [DONE] RAUL MARTINS VENANCIO | Periodo 12/2025 processado em 0.52s
+[2026-03-07 00:12:47.873] | INFO     | [_process_sync_group] [DELTA] RAUL MARTINS VENANCIO (2/2026): 6 novos, 0 atualizados.
+[2026-03-07 00:12:47.873] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para RAUL MARTINS VENANCIO. ID gerado: 490b26ce-71b9-4b8b-baf1-548d795544d0
+[2026-03-07 00:12:47.874] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 6 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001247.json
+[2026-03-07 00:12:48.394] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 490b26ce-71b9-4b8b-baf1-548d795544d0 com status: SUCESSO
+[2026-03-07 00:12:48.395] | INFO     | [_process_sync_group] [DONE] RAUL MARTINS VENANCIO | Periodo 2/2026 processado em 0.53s
+[2026-03-07 00:12:48.397] | INFO     | [_process_sync_group] [DELTA] HUGO DOS SANTOS GONÇALVES (1/2026): 1 novos, 0 atualizados.
+[2026-03-07 00:12:48.398] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para HUGO DOS SANTOS GONÇALVES. ID gerado: 6c255ce9-7311-4268-9ada-5c58cbdede8c
+[2026-03-07 00:12:48.399] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 1 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001248.json
+[2026-03-07 00:12:48.916] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 6c255ce9-7311-4268-9ada-5c58cbdede8c com status: SUCESSO
+[2026-03-07 00:12:48.916] | INFO     | [_process_sync_group] [DONE] HUGO DOS SANTOS GONÇALVES | Periodo 1/2026 processado em 0.52s
+[2026-03-07 00:12:48.919] | INFO     | [_process_sync_group] [DELTA] GABRIEL DE DEUS NICOLAU (3/2026): 9 novos, 0 atualizados.
+[2026-03-07 00:12:48.920] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para GABRIEL DE DEUS NICOLAU. ID gerado: 78814219-810b-4b98-aa99-00719e8ef22f
+[2026-03-07 00:12:48.921] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 9 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001248.json
+[2026-03-07 00:12:49.434] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 78814219-810b-4b98-aa99-00719e8ef22f com status: SUCESSO
+[2026-03-07 00:12:49.434] | INFO     | [_process_sync_group] [DONE] GABRIEL DE DEUS NICOLAU | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:49.437] | INFO     | [_process_sync_group] [DELTA] RAUL MARTINS VENANCIO (1/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:49.437] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para RAUL MARTINS VENANCIO. ID gerado: 65b3935c-f275-4846-860e-3f565a4e1ae5
+[2026-03-07 00:12:49.439] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001249.json
+[2026-03-07 00:12:49.956] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 65b3935c-f275-4846-860e-3f565a4e1ae5 com status: SUCESSO
+[2026-03-07 00:12:49.956] | INFO     | [_process_sync_group] [DONE] RAUL MARTINS VENANCIO | Periodo 1/2026 processado em 0.52s
+[2026-03-07 00:12:49.960] | INFO     | [_process_sync_group] [DELTA] DANIEL SOUZA DA SILVA (3/2026): 4 novos, 0 atualizados.
+[2026-03-07 00:12:49.960] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para DANIEL SOUZA DA SILVA. ID gerado: 02c33dae-3b59-4c71-bc49-c97b5c0c72dd
+[2026-03-07 00:12:49.961] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 4 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001249.json
+[2026-03-07 00:12:50.480] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso 02c33dae-3b59-4c71-bc49-c97b5c0c72dd com status: SUCESSO
+[2026-03-07 00:12:50.481] | INFO     | [_process_sync_group] [DONE] DANIEL SOUZA DA SILVA | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:50.484] | INFO     | [_process_sync_group] [DELTA] RENAN MIRANDA (3/2026): 3 novos, 0 atualizados.
+[2026-03-07 00:12:50.484] | INFO     | [criar_log_importacao] [MOCK] Criando log falso de importacao para RENAN MIRANDA. ID gerado: d20e3559-2de5-48e4-8861-febee9e8fd79
+[2026-03-07 00:12:50.485] | INFO     | [upsert_pedidos] [MOCK] Sucesso. 3 pedidos salvos localmente em: C:\Users\Nathan\Desktop\dashboard_vendas\monitoriaVendasPython_TOTVS\data\json_tests\mock_payload_20260307_001250.json
+[2026-03-07 00:12:51.001] | INFO     | [finalizar_log_importacao] [MOCK] Finalizando log falso d20e3559-2de5-48e4-8861-febee9e8fd79 com status: SUCESSO
+[2026-03-07 00:12:51.001] | INFO     | [_process_sync_group] [DONE] RENAN MIRANDA | Periodo 3/2026 processado em 0.52s
+[2026-03-07 00:12:51.001] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 40.32s
+[2026-03-07 00:12:51.002] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 62.90s.
+[2026-03-07 00:12:51.002] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
+[2026-03-07 00:13:51.033] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-07 00:13:51.037] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca de pedidos na API REST.
+[2026-03-07 00:13:51.482] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-07 00:13:51.961] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-07 00:13:52.288] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-07 00:13:52.592] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-07 00:13:52.901] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-07 00:13:53.213] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-07 00:13:53.550] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 7 processada. Registros: 100.
+[2026-03-07 00:13:53.842] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 8 processada. Registros: 46.
+[2026-03-07 00:13:53.843] | INFO     | [fetch_sales_orders] [TOTVS] Operacao concluida em 2.8063s. Total bruto: 746 registros.
+[2026-03-07 00:13:53.844] | INFO     | [_run_cycle] [POLLER] 746 pedidos carregados. Iniciando SyncService.
+[2026-03-07 00:13:53.844] | INFO     | [process_totvs_payload] [SYNC] Iniciando processamento de payload TOTVS.
+[2026-03-07 00:13:54.006] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 0.16s
+[2026-03-07 00:13:54.006] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 2.97s.
+[2026-03-07 00:13:54.007] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
+[2026-03-07 00:14:54.037] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-07 00:14:54.038] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca de pedidos na API REST.
+[2026-03-07 00:14:54.364] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-07 00:14:54.656] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-07 00:14:54.927] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-07 00:14:55.196] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-07 00:14:55.479] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-07 00:14:55.756] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-07 00:14:56.010] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 7 processada. Registros: 100.
+[2026-03-07 00:14:56.262] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 8 processada. Registros: 46.
+[2026-03-07 00:14:56.263] | INFO     | [fetch_sales_orders] [TOTVS] Operacao concluida em 2.2246s. Total bruto: 746 registros.
+[2026-03-07 00:14:56.266] | INFO     | [_run_cycle] [POLLER] 746 pedidos carregados. Iniciando SyncService.
+[2026-03-07 00:14:56.267] | INFO     | [process_totvs_payload] [SYNC] Iniciando processamento de payload TOTVS.
+[2026-03-07 00:14:56.387] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 0.12s
+[2026-03-07 00:14:56.388] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 2.35s.
+[2026-03-07 00:14:56.388] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...

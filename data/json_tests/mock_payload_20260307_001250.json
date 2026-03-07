@@ -1,0 +1,44 @@
+[
+    {
+        "importacao_id": "d20e3559-2de5-48e4-8861-febee9e8fd79",
+        "orderid": "000915",
+        "issuedate": "2026-03-06",
+        "sellerid": "000043",
+        "amount": 58637.58,
+        "sellername": "RENAN MIRANDA",
+        "customername": "JMS CALDEIRARIA - SERVICOS DE MANUTENCAO E MONTAGEM LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "6bb01d72ed223cfded9e0bfe488a35a6"
+    },
+    {
+        "importacao_id": "d20e3559-2de5-48e4-8861-febee9e8fd79",
+        "orderid": "000934",
+        "issuedate": "2026-03-05",
+        "sellerid": "000043",
+        "amount": 58370.0,
+        "sellername": "RENAN MIRANDA",
+        "customername": "SALITRE FERTILIZANTES LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "7b19b3203f7f13d551c272bcc5a9d948"
+    },
+    {
+        "importacao_id": "d20e3559-2de5-48e4-8861-febee9e8fd79",
+        "orderid": "000947",
+        "issuedate": "2026-03-06",
+        "sellerid": "000043",
+        "amount": 13545.75,
+        "sellername": "RENAN MIRANDA",
+        "customername": "CASA DAS VALVULAS COMERCIO DE EQUIP HIDRAULICOS IN",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "ac0fe01ba7fd3d4c39c84ed9aecbabbc"
+    }
+]

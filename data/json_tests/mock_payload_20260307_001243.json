@@ -1,0 +1,58 @@
+[
+    {
+        "importacao_id": "b6887345-245e-43a4-8119-2aefc85011af",
+        "orderid": "000684",
+        "issuedate": "2026-03-03",
+        "sellerid": "000006",
+        "amount": 3827.34,
+        "sellername": "RAUL MARTINS VENANCIO",
+        "customername": "JACOBINA MINERACAO E COMERCIO LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "2269cf7f1a6b141301d4a328a80a07cf"
+    },
+    {
+        "importacao_id": "b6887345-245e-43a4-8119-2aefc85011af",
+        "orderid": "000708",
+        "issuedate": "2026-03-03",
+        "sellerid": "000006",
+        "amount": 1332.0,
+        "sellername": "RAUL MARTINS VENANCIO",
+        "customername": "ATLANTIC NICKEL MINERACAO LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "c649f034c2ebd3fd4076677573a3fd1c"
+    },
+    {
+        "importacao_id": "b6887345-245e-43a4-8119-2aefc85011af",
+        "orderid": "000713",
+        "issuedate": "2026-03-03",
+        "sellerid": "000006",
+        "amount": 1612.8,
+        "sellername": "RAUL MARTINS VENANCIO",
+        "customername": "KINROSS BRASIL MINERACAO S/A",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "112b6cd83015b32f957600857d834ef8"
+    },
+    {
+        "importacao_id": "b6887345-245e-43a4-8119-2aefc85011af",
+        "orderid": "000907",
+        "issuedate": "2026-03-02",
+        "sellerid": "000006",
+        "amount": 12915.4,
+        "sellername": "RAUL MARTINS VENANCIO",
+        "customername": "JACOBINA MINERACAO E COMERCIO LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "e3152f201618ccad7a343fa553b11e07"
+    }
+]

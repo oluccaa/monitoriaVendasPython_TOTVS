@@ -1,0 +1,72 @@
+[
+    {
+        "importacao_id": "a3e5b94e-b47b-422f-a9a6-364ddd44c020",
+        "orderid": "000614",
+        "issuedate": "2026-03-02",
+        "sellerid": "000054",
+        "amount": 2555.44,
+        "sellername": "LEONARDO MARQUES DIAS",
+        "customername": "CLAUDEMIR ARRIGHI",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "e0172c50dcbdfb5926d6a1cf5bb49d36"
+    },
+    {
+        "importacao_id": "a3e5b94e-b47b-422f-a9a6-364ddd44c020",
+        "orderid": "000782",
+        "issuedate": "2026-03-04",
+        "sellerid": "000054",
+        "amount": 5975.0,
+        "sellername": "LEONARDO MARQUES DIAS",
+        "customername": "WESLLEY CORREA DE CASTRO 41141189852",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "1a878098b1b1d6447e93656c5fdd8ec3"
+    },
+    {
+        "importacao_id": "a3e5b94e-b47b-422f-a9a6-364ddd44c020",
+        "orderid": "000810",
+        "issuedate": "2026-03-05",
+        "sellerid": "000054",
+        "amount": 8026.5,
+        "sellername": "LEONARDO MARQUES DIAS",
+        "customername": "RODRIGO SALLES PEREIRA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "011827633a9c616a8684470e3c39b4ce"
+    },
+    {
+        "importacao_id": "a3e5b94e-b47b-422f-a9a6-364ddd44c020",
+        "orderid": "000840",
+        "issuedate": "2026-03-05",
+        "sellerid": "000054",
+        "amount": 899.3,
+        "sellername": "LEONARDO MARQUES DIAS",
+        "customername": "WMACHADO MANUTENCOES LTDA",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "4e2a5cc1071c6da4afe06427c571adf9"
+    },
+    {
+        "importacao_id": "a3e5b94e-b47b-422f-a9a6-364ddd44c020",
+        "orderid": "000951",
+        "issuedate": "2026-03-06",
+        "sellerid": "000054",
+        "amount": 51844.2,
+        "sellername": "LEONARDO MARQUES DIAS",
+        "customername": "MAURICIO DAHER DIBE",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "7c17d34d03164b65be99a81b5c89fb51"
+    }
+]

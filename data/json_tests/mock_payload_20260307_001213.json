@@ -1,0 +1,16 @@
+[
+    {
+        "importacao_id": "8399856b-57cf-4888-8f40-e46acb2da36a",
+        "orderid": "000184",
+        "issuedate": "2026-02-03",
+        "sellerid": "000002",
+        "amount": 80.0,
+        "sellername": "LUCIANO DE OLIVEIRA DIAS",
+        "customername": "MOSAIC FERTILIZANTES P&K LTDA.",
+        "mes_referencia": "",
+        "ano_referencia": 2026,
+        "status": "ATIVO",
+        "tipo_registro": "NOVO",
+        "hash_controle": "1ecf1bc53dbfdb46a444962a6d27782a"
+    }
+]
