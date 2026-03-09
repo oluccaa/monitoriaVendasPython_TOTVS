@@ -58,58 +58,55 @@ class SupabaseRepository:
 
     def upsert_vendedores(self, pedidos: List[Dict[str, Any]]) -> bool:
         """
-        Analisa o payload da TOTVS e cadastra/atualiza os vendedores no banco.
-        Usa 'nome_planilha' como chave para não duplicar dados antigos.
+        Cadastra novos vendedores da TOTVS sem sobrescrever os nomes de exibição
+        escolhidos pelo administrador no banco de dados.
         """
         if not pedidos: 
             return True
 
-        vendedores_unicos = {}
-        
-        for p in pedidos:
-            seller_id_str = str(p.get("sellerid", "")).strip()
-            seller_name = str(p.get("sellername", "")).strip()
-            
-            # Se não vier nome do vendedor da TOTVS, ignora
-            if not seller_name:
-                continue
-
-            # Prepara a conversão do código numérico
-            seller_id_num = None
-            if seller_id_str:
-                try:
-                    seller_id_num = float(seller_id_str)
-                except ValueError:
-                    pass
-
-            # Agrupa usando o nome_planilha (nome bruto da TOTVS) para não processar o mesmo cara 50 vezes no loop
-            if seller_name not in vendedores_unicos:
-                vendedores_unicos[seller_name] = {
-                    "nome_planilha": seller_name,
-                    "nome_exibicao": seller_name.title(), # Ex: GABRIEL BARRETO -> Gabriel Barreto
-                    "ativo": True
-                }
-                
-                # Se a TOTVS enviou um ID numérico válido, adicionamos ao update
-                if seller_id_num is not None:
-                    vendedores_unicos[seller_name]["codigo_vendedor"] = seller_id_num
-
-        lista_upsert = list(vendedores_unicos.values())
-        
-        if not lista_upsert:
-            return True
-
         try:
-            # O pulo do gato: on_conflict="nome_planilha" garante que os antigos sejam atualizados com o código novo
-            self.client.table("vendedores").upsert(
-                lista_upsert, 
-                on_conflict="nome_planilha"
-            ).execute()
+            # 1. Busca os vendedores que já existem no banco para comparar
+            res_existentes = self.client.table("vendedores").select("nome_planilha").execute()
+            nomes_no_banco = {v["nome_planilha"] for v in res_existentes.data} if res_existentes.data else set()
+
+            vendedores_novos = {}
+            
+            for p in pedidos:
+                seller_name = str(p.get("sellername", "")).strip()
+                seller_id_str = str(p.get("sellerid", "")).strip()
+                
+                if not seller_name or seller_name in nomes_no_banco:
+                    continue
+
+                # Se o vendedor não existe no banco, preparamos para inserir
+                if seller_name not in vendedores_novos:
+                    # O nome_exibicao é criado apenas na primeira vez
+                    vendedores_novos[seller_name] = {
+                        "nome_planilha": seller_name,
+                        "nome_exibicao": seller_name.title(), 
+                        "ativo": True
+                    }
+                    
+                    # Adiciona o código se ele existir
+                    try:
+                        if seller_id_str:
+                            vendedores_novos[seller_name]["codigo_vendedor"] = float(seller_id_str)
+                    except ValueError:
+                        pass
+
+            lista_para_inserir = list(vendedores_novos.values())
+            
+            if not lista_para_inserir:
+                return True # Nada de novo para inserir
+
+            # 2. Realiza apenas o INSERT dos novos (sem atualizar os antigos)
+            self.client.table("vendedores").insert(lista_para_inserir).execute()
+            logger.info(f"[SUPABASE] {len(lista_para_inserir)} novos vendedores cadastrados.")
             
             return True
         except Exception as e:
-            logger.error(f"[SUPABASE] Erro ao sincronizar tabela de vendedores: {e}")
-            return False 
+            logger.error(f"[SUPABASE] Erro ao sincronizar novos vendedores: {e}")
+            return False
 
     def upsert_pedidos(self, pedidos: List[Dict[str, Any]]) -> bool:
         """
