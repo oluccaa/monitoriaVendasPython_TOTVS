@@ -56,6 +56,61 @@ class SupabaseRepository:
         except Exception as e:
             logger.error(f"[SUPABASE] Erro ao finalizar log {log_id}: {e}")
 
+    def upsert_vendedores(self, pedidos: List[Dict[str, Any]]) -> bool:
+        """
+        Analisa o payload da TOTVS e cadastra/atualiza os vendedores no banco.
+        Usa 'nome_planilha' como chave para não duplicar dados antigos.
+        """
+        if not pedidos: 
+            return True
+
+        vendedores_unicos = {}
+        
+        for p in pedidos:
+            seller_id_str = str(p.get("sellerid", "")).strip()
+            seller_name = str(p.get("sellername", "")).strip()
+            
+            # Se não vier nome do vendedor da TOTVS, ignora
+            if not seller_name:
+                continue
+
+            # Prepara a conversão do código numérico
+            seller_id_num = None
+            if seller_id_str:
+                try:
+                    seller_id_num = float(seller_id_str)
+                except ValueError:
+                    pass
+
+            # Agrupa usando o nome_planilha (nome bruto da TOTVS) para não processar o mesmo cara 50 vezes no loop
+            if seller_name not in vendedores_unicos:
+                vendedores_unicos[seller_name] = {
+                    "nome_planilha": seller_name,
+                    "nome_exibicao": seller_name.title(), # Ex: GABRIEL BARRETO -> Gabriel Barreto
+                    "ativo": True
+                }
+                
+                # Se a TOTVS enviou um ID numérico válido, adicionamos ao update
+                if seller_id_num is not None:
+                    vendedores_unicos[seller_name]["codigo_vendedor"] = seller_id_num
+
+        lista_upsert = list(vendedores_unicos.values())
+        
+        if not lista_upsert:
+            return True
+
+        try:
+            # O pulo do gato: on_conflict="nome_planilha" garante que os antigos sejam atualizados com o código novo
+            self.client.table("vendedores").upsert(
+                lista_upsert, 
+                on_conflict="nome_planilha"
+            ).execute()
+            
+            return True
+        except Exception as e:
+            logger.error(f"[SUPABASE] Erro ao sincronizar tabela de vendedores: {e}")
+            return False 
+
     def upsert_pedidos(self, pedidos: List[Dict[str, Any]]) -> bool:
         """
         Envia pedidos mapeando exatamente para as colunas da tabela no Supabase.

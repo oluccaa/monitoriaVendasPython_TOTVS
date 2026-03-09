@@ -43,6 +43,11 @@ class SyncService:
             logger.warning("[SYNC] Payload vazio recebido. Operacao abortada.")
             return
 
+        # ---> ADICIONE ESTA LINHA AQUI <---
+        # Garante que os vendedores existam no banco antes das vendas entrarem
+        self.client.upsert_vendedores(pedidos_totvs)
+        # ----------------------------------
+
         # Agrupamento para manter o isolamento de auditoria
         grupos = {}
         for ped in pedidos_totvs:
