@@ -634,3 +634,21 @@
 [2026-03-09 09:04:15.379] | INFO     | [_process_sync_group] [DELTA] ISAQUE CARVALHO DO ESPIRITO SANTOS (2/2026): 9 novos, 0 atualizados.
 [2026-03-09 09:04:16.772] | INFO     | [_process_sync_group] [DONE] ISAQUE CARVALHO DO ESPIRITO SANTOS | Periodo 2/2026 processado em 1.43s
 [2026-03-09 09:04:16.815] | INFO     | [_process_sync_group] [DELTA] ROBERTA SANTAS (2/2026): 3 novos, 0 atualizados.
+[2026-03-09 11:30:03.735] | INFO     | [run_system] ===================================================
+[2026-03-09 11:30:03.744] | INFO     | [run_system]    [ACOSVITAL_TOTVS_SYNC] - INICIANDO SISTEMA   
+[2026-03-09 11:30:03.746] | INFO     | [run_system] ===================================================
+[2026-03-09 11:30:03.801] | INFO     | [_init_db] [DB] Banco de dados verificado e otimizado: \\192.168.0.230\rede\TI\CÓDIGOS\DEV\monitoriaVendasPython_TOTVS\data\totvs_cache.db
+[2026-03-09 11:30:03.803] | INFO     | [run_system] [SQLITE] Banco local iniciado em: \\192.168.0.230\rede\TI\CÓDIGOS\DEV\monitoriaVendasPython_TOTVS\data\totvs_cache.db
+[2026-03-09 11:30:04.400] | INFO     | [run_system] [SUPABASE] Cliente configurado e conectado com sucesso.
+[2026-03-09 11:30:04.402] | INFO     | [run_system] [TOTVS] Cliente REST configurado e validado.
+[2026-03-09 11:30:04.404] | INFO     | [run_system] [SISTEMA] Polling a cada 60s. Iniciando motor...
+[2026-03-09 11:30:04.406] | INFO     | [start] [SISTEMA] Modo Polling ativado. Consultando TOTVS a cada 60 segundos.
+[2026-03-09 11:30:04.409] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-09 11:30:04.411] | ERROR    | [_run_cycle] [POLLER] Falha isolada durante o ciclo de verificacao: object of type 'coroutine' has no len()
+Traceback (most recent call last):
+  File "z:\TI\CÓDIGOS\DEV\monitoriaVendasPython_TOTVS\src\application\poller.py", line 80, in _run_cycle
+    logger.info(f"[POLLER] {len(pedidos_totvs)} pedidos carregados. Iniciando SyncService.")
+                            ~~~^^^^^^^^^^^^^^^
+TypeError: object of type 'coroutine' has no len()
+[2026-03-09 11:30:04.426] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 0.02s.
+[2026-03-09 11:30:04.440] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
