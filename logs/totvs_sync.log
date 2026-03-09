@@ -445,3 +445,116 @@
 [2026-03-07 00:14:56.387] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 0.12s
 [2026-03-07 00:14:56.388] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 2.35s.
 [2026-03-07 00:14:56.388] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
+[2026-03-09 07:33:08.923] | INFO     | [run_system] ===================================================
+[2026-03-09 07:33:08.947] | INFO     | [run_system]    [ACOSVITAL_TOTVS_SYNC] - INICIANDO SISTEMA   
+[2026-03-09 07:33:08.954] | INFO     | [run_system] ===================================================
+[2026-03-09 07:33:09.400] | INFO     | [_init_db] [DB] Banco de dados verificado e otimizado: \\192.168.0.230\rede\TI\CÓDIGOS\DEV\monitoriaVendasPython_TOTVS\data\totvs_cache.db
+[2026-03-09 07:33:09.410] | INFO     | [run_system] [SQLITE] Banco local iniciado em: \\192.168.0.230\rede\TI\CÓDIGOS\DEV\monitoriaVendasPython_TOTVS\data\totvs_cache.db
+[2026-03-09 07:33:10.557] | INFO     | [run_system] [SUPABASE] Cliente configurado e conectado com sucesso.
+[2026-03-09 07:33:10.727] | INFO     | [run_system] [TOTVS] Cliente REST configurado e validado.
+[2026-03-09 07:33:10.736] | INFO     | [run_system] [SISTEMA] Polling a cada 60s. Iniciando motor...
+[2026-03-09 07:33:10.744] | INFO     | [start] [SISTEMA] Modo Polling ativado. Consultando TOTVS a cada 60 segundos.
+[2026-03-09 07:33:10.763] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-09 07:33:10.780] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca de pedidos na API REST.
+[2026-03-09 07:33:13.382] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-09 07:33:14.833] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-09 07:33:15.122] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-09 07:33:15.422] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-09 07:33:15.759] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-09 07:33:16.061] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-09 07:33:16.351] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 7 processada. Registros: 100.
+[2026-03-09 07:33:16.623] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 8 processada. Registros: 58.
+[2026-03-09 07:33:16.630] | INFO     | [fetch_sales_orders] [TOTVS] Operacao concluida em 5.8499s. Total bruto: 758 registros.
+[2026-03-09 07:33:16.656] | INFO     | [_run_cycle] [POLLER] 758 pedidos carregados. Iniciando SyncService.
+[2026-03-09 07:33:16.660] | INFO     | [process_totvs_payload] [SYNC] Iniciando processamento de payload TOTVS.
+[2026-03-09 07:33:25.676] | INFO     | [_process_sync_group] [DELTA] LARISSA  ALMEIDA (3/2026): 1 novos, 0 atualizados.
+[2026-03-09 07:33:28.377] | INFO     | [_process_sync_group] [DONE] LARISSA  ALMEIDA | Periodo 3/2026 processado em 2.97s
+[2026-03-09 07:33:36.219] | INFO     | [_process_sync_group] [DELTA] DIEGO JOSE ARANTES (3/2026): 2 novos, 0 atualizados.
+[2026-03-09 07:33:38.264] | INFO     | [_process_sync_group] [DONE] DIEGO JOSE ARANTES | Periodo 3/2026 processado em 2.43s
+[2026-03-09 07:33:39.777] | INFO     | [_process_sync_group] [DELTA] ISAQUE CARVALHO DO ESPIRITO SANTOS (3/2026): 1 novos, 0 atualizados.
+[2026-03-09 07:33:41.819] | INFO     | [_process_sync_group] [DONE] ISAQUE CARVALHO DO ESPIRITO SANTOS | Periodo 3/2026 processado em 2.28s
+[2026-03-09 07:33:43.075] | INFO     | [_process_sync_group] [DELTA] HUGO FELIPE DA MATA (3/2026): 0 novos, 1 atualizados.
+[2026-03-09 07:33:45.172] | INFO     | [_process_sync_group] [DONE] HUGO FELIPE DA MATA | Periodo 3/2026 processado em 2.29s
+[2026-03-09 07:33:45.398] | INFO     | [_process_sync_group] [DELTA] RAUL MARTINS VENANCIO (3/2026): 0 novos, 1 atualizados.
+[2026-03-09 07:33:47.428] | INFO     | [_process_sync_group] [DONE] RAUL MARTINS VENANCIO | Periodo 3/2026 processado em 2.25s
+[2026-03-09 07:33:48.834] | INFO     | [_process_sync_group] [DELTA] JORGE LUIZ (3/2026): 1 novos, 0 atualizados.
+[2026-03-09 07:33:51.213] | INFO     | [_process_sync_group] [DONE] JORGE LUIZ | Periodo 3/2026 processado em 2.77s
+[2026-03-09 07:33:52.321] | INFO     | [_process_sync_group] [DELTA] RAUL MARTINS VENANCIO (2/2026): 3 novos, 0 atualizados.
+[2026-03-09 07:33:54.394] | INFO     | [_process_sync_group] [DONE] RAUL MARTINS VENANCIO | Periodo 2/2026 processado em 2.45s
+[2026-03-09 07:33:55.336] | INFO     | [_process_sync_group] [DELTA] RAUL MARTINS VENANCIO (1/2026): 4 novos, 0 atualizados.
+[2026-03-09 07:33:57.161] | INFO     | [_process_sync_group] [DONE] RAUL MARTINS VENANCIO | Periodo 1/2026 processado em 2.03s
+[2026-03-09 07:33:57.630] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 40.97s
+[2026-03-09 07:33:57.635] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 46.87s.
+[2026-03-09 07:33:57.645] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
+[2026-03-09 07:34:57.683] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-09 07:34:57.691] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca de pedidos na API REST.
+[2026-03-09 07:34:58.127] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-09 07:34:58.718] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-09 07:34:59.120] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-09 07:34:59.536] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-09 07:34:59.881] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-09 07:35:00.316] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-09 07:35:00.977] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 7 processada. Registros: 100.
+[2026-03-09 07:35:01.308] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 8 processada. Registros: 58.
+[2026-03-09 07:35:01.312] | INFO     | [fetch_sales_orders] [TOTVS] Operacao concluida em 3.6213s. Total bruto: 758 registros.
+[2026-03-09 07:35:01.324] | INFO     | [_run_cycle] [POLLER] 758 pedidos carregados. Iniciando SyncService.
+[2026-03-09 07:35:01.331] | INFO     | [process_totvs_payload] [SYNC] Iniciando processamento de payload TOTVS.
+[2026-03-09 07:35:25.446] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 24.12s
+[2026-03-09 07:35:25.450] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 27.77s.
+[2026-03-09 07:35:25.476] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
+[2026-03-09 07:36:25.496] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-09 07:36:25.511] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca de pedidos na API REST.
+[2026-03-09 07:36:26.068] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-09 07:36:26.405] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-09 07:36:26.921] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-09 07:36:27.431] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-09 07:36:27.809] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-09 07:36:28.195] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-09 07:36:28.763] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 7 processada. Registros: 100.
+[2026-03-09 07:36:29.067] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 8 processada. Registros: 58.
+[2026-03-09 07:36:29.073] | INFO     | [fetch_sales_orders] [TOTVS] Operacao concluida em 3.5628s. Total bruto: 758 registros.
+[2026-03-09 07:36:29.081] | INFO     | [_run_cycle] [POLLER] 758 pedidos carregados. Iniciando SyncService.
+[2026-03-09 07:36:29.088] | INFO     | [process_totvs_payload] [SYNC] Iniciando processamento de payload TOTVS.
+[2026-03-09 07:36:49.899] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 20.81s
+[2026-03-09 07:36:49.902] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 24.41s.
+[2026-03-09 07:36:49.909] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
+[2026-03-09 07:37:49.933] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-09 07:37:49.939] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca de pedidos na API REST.
+[2026-03-09 07:37:50.445] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-09 07:37:50.995] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-09 07:37:51.325] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-09 07:37:51.646] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-09 07:37:52.012] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-09 07:37:52.544] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-09 07:37:53.065] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 7 processada. Registros: 100.
+[2026-03-09 07:37:53.364] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 8 processada. Registros: 58.
+[2026-03-09 07:37:53.369] | INFO     | [fetch_sales_orders] [TOTVS] Operacao concluida em 3.4295s. Total bruto: 758 registros.
+[2026-03-09 07:37:53.377] | INFO     | [_run_cycle] [POLLER] 758 pedidos carregados. Iniciando SyncService.
+[2026-03-09 07:37:53.386] | INFO     | [process_totvs_payload] [SYNC] Iniciando processamento de payload TOTVS.
+[2026-03-09 07:38:15.054] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 21.67s
+[2026-03-09 07:38:15.063] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 25.13s.
+[2026-03-09 07:38:15.067] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
+[2026-03-09 07:39:15.089] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-09 07:39:15.100] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca de pedidos na API REST.
+[2026-03-09 07:39:15.585] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-09 07:39:16.059] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-09 07:39:16.388] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-09 07:39:16.712] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-09 07:39:17.018] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-09 07:39:17.326] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-09 07:39:17.631] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 7 processada. Registros: 100.
+[2026-03-09 07:39:17.926] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 8 processada. Registros: 58.
+[2026-03-09 07:39:17.937] | INFO     | [fetch_sales_orders] [TOTVS] Operacao concluida em 2.8369s. Total bruto: 758 registros.
+[2026-03-09 07:39:17.946] | INFO     | [_run_cycle] [POLLER] 758 pedidos carregados. Iniciando SyncService.
+[2026-03-09 07:39:17.951] | INFO     | [process_totvs_payload] [SYNC] Iniciando processamento de payload TOTVS.
+[2026-03-09 07:39:49.516] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 31.57s
+[2026-03-09 07:39:49.525] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 34.44s.
+[2026-03-09 07:39:49.538] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
+[2026-03-09 07:40:49.582] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-09 07:40:49.592] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca de pedidos na API REST.
+[2026-03-09 07:40:51.385] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-09 07:40:51.869] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-09 07:40:52.212] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-09 07:40:52.551] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-09 07:40:52.839] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-09 07:40:53.187] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
