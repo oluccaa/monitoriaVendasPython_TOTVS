@@ -558,3 +558,79 @@
 [2026-03-09 07:40:52.551] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
 [2026-03-09 07:40:52.839] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
 [2026-03-09 07:40:53.187] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-09 09:03:22.826] | INFO     | [run_system] ===================================================
+[2026-03-09 09:03:22.836] | INFO     | [run_system]    [ACOSVITAL_TOTVS_SYNC] - INICIANDO SISTEMA   
+[2026-03-09 09:03:22.839] | INFO     | [run_system] ===================================================
+[2026-03-09 09:03:22.952] | INFO     | [_init_db] [DB] Banco de dados verificado e otimizado: \\192.168.0.230\rede\TI\CÓDIGOS\DEV\monitoriaVendasPython_TOTVS\data\totvs_cache.db
+[2026-03-09 09:03:22.955] | INFO     | [run_system] [SQLITE] Banco local iniciado em: \\192.168.0.230\rede\TI\CÓDIGOS\DEV\monitoriaVendasPython_TOTVS\data\totvs_cache.db
+[2026-03-09 09:03:23.577] | INFO     | [run_system] [SUPABASE] Cliente configurado e conectado com sucesso.
+[2026-03-09 09:03:23.580] | INFO     | [run_system] [TOTVS] Cliente REST configurado e validado.
+[2026-03-09 09:03:23.582] | INFO     | [run_system] [SISTEMA] Polling a cada 60s. Iniciando motor...
+[2026-03-09 09:03:23.584] | INFO     | [start] [SISTEMA] Modo Polling ativado. Consultando TOTVS a cada 60 segundos.
+[2026-03-09 09:03:23.586] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-09 09:03:23.589] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca de pedidos na API REST.
+[2026-03-09 09:03:28.999] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-09 09:03:32.759] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-09 09:03:33.037] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-09 09:03:33.307] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-09 09:03:33.586] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-09 09:03:35.962] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-09 09:03:37.227] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 7 processada. Registros: 100.
+[2026-03-09 09:03:40.703] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 8 processada. Registros: 63.
+[2026-03-09 09:03:40.705] | INFO     | [fetch_sales_orders] [TOTVS] Operacao concluida em 17.1154s. Total bruto: 763 registros.
+[2026-03-09 09:03:40.708] | INFO     | [_run_cycle] [POLLER] 763 pedidos carregados. Iniciando SyncService.
+[2026-03-09 09:03:40.710] | INFO     | [process_totvs_payload] [SYNC] Iniciando processamento de payload TOTVS.
+[2026-03-09 09:03:40.769] | INFO     | [_process_sync_group] [DELTA] ABNER LUIS CARDOSO RODRIGUES (2/2026): 34 novos, 0 atualizados.
+[2026-03-09 09:03:43.117] | INFO     | [_process_sync_group] [DONE] ABNER LUIS CARDOSO RODRIGUES | Periodo 2/2026 processado em 2.40s
+[2026-03-09 09:03:43.164] | INFO     | [_process_sync_group] [DELTA] LEONARDO PRATES (2/2026): 19 novos, 0 atualizados.
+[2026-03-09 09:03:44.462] | INFO     | [_process_sync_group] [DONE] LEONARDO PRATES | Periodo 2/2026 processado em 1.34s
+[2026-03-09 09:03:44.507] | INFO     | [_process_sync_group] [DELTA] THALES FELIPE JARDIM COSTA (2/2026): 6 novos, 0 atualizados.
+[2026-03-09 09:03:45.798] | INFO     | [_process_sync_group] [DONE] THALES FELIPE JARDIM COSTA | Periodo 2/2026 processado em 1.33s
+[2026-03-09 09:03:45.845] | INFO     | [_process_sync_group] [DELTA] PRISCILA YUMI SAMEZIMA MARC DE MOURA (2/2026): 17 novos, 0 atualizados.
+[2026-03-09 09:03:47.137] | INFO     | [_process_sync_group] [DONE] PRISCILA YUMI SAMEZIMA MARC DE MOURA | Periodo 2/2026 processado em 1.34s
+[2026-03-09 09:03:47.181] | INFO     | [_process_sync_group] [DELTA] GABRIEL DE DEUS NICOLAU (2/2026): 21 novos, 0 atualizados.
+[2026-03-09 09:03:48.473] | INFO     | [_process_sync_group] [DONE] GABRIEL DE DEUS NICOLAU | Periodo 2/2026 processado em 1.33s
+[2026-03-09 09:03:48.518] | INFO     | [_process_sync_group] [DELTA] LEONARDO MARQUES DIAS (2/2026): 4 novos, 0 atualizados.
+[2026-03-09 09:03:49.809] | INFO     | [_process_sync_group] [DONE] LEONARDO MARQUES DIAS | Periodo 2/2026 processado em 1.33s
+[2026-03-09 09:03:49.853] | INFO     | [_process_sync_group] [DELTA] LUCIANO DE OLIVEIRA DIAS (2/2026): 1 novos, 0 atualizados.
+[2026-03-09 09:03:51.134] | INFO     | [_process_sync_group] [DONE] LUCIANO DE OLIVEIRA DIAS | Periodo 2/2026 processado em 1.32s
+[2026-03-09 09:03:51.180] | INFO     | [_process_sync_group] [DELTA] TIAGO DE OLIVEIRA VIANA (2/2026): 5 novos, 0 atualizados.
+[2026-03-09 09:03:52.469] | INFO     | [_process_sync_group] [DONE] TIAGO DE OLIVEIRA VIANA | Periodo 2/2026 processado em 1.33s
+[2026-03-09 09:03:52.514] | INFO     | [_process_sync_group] [DELTA] EDCARLOS SANTOS DE SOUZA (2/2026): 3 novos, 0 atualizados.
+[2026-03-09 09:03:54.245] | INFO     | [_process_sync_group] [DONE] EDCARLOS SANTOS DE SOUZA | Periodo 2/2026 processado em 1.77s
+[2026-03-09 09:03:54.292] | INFO     | [_process_sync_group] [DELTA] VINICIUS ROVARIS LAIS PEREIRA (2/2026): 43 novos, 0 atualizados.
+[2026-03-09 09:03:55.615] | INFO     | [_process_sync_group] [DONE] VINICIUS ROVARIS LAIS PEREIRA | Periodo 2/2026 processado em 1.37s
+[2026-03-09 09:03:55.662] | INFO     | [_process_sync_group] [DELTA] JOAO VITOR MARTINS VENANCIO (2/2026): 1 novos, 0 atualizados.
+[2026-03-09 09:03:56.962] | INFO     | [_process_sync_group] [DONE] JOAO VITOR MARTINS VENANCIO | Periodo 2/2026 processado em 1.34s
+[2026-03-09 09:03:57.006] | INFO     | [_process_sync_group] [DELTA] HUGO FELIPE DA MATA (2/2026): 6 novos, 0 atualizados.
+[2026-03-09 09:03:58.294] | INFO     | [_process_sync_group] [DONE] HUGO FELIPE DA MATA | Periodo 2/2026 processado em 1.33s
+[2026-03-09 09:03:58.339] | INFO     | [_process_sync_group] [DELTA] LARISSA  ALMEIDA (2/2026): 20 novos, 0 atualizados.
+[2026-03-09 09:03:59.636] | INFO     | [_process_sync_group] [DONE] LARISSA  ALMEIDA | Periodo 2/2026 processado em 1.34s
+[2026-03-09 09:03:59.682] | INFO     | [_process_sync_group] [DELTA] SARALIGIA SIMOES DE SOUZA (2/2026): 10 novos, 0 atualizados.
+[2026-03-09 09:04:00.971] | INFO     | [_process_sync_group] [DONE] SARALIGIA SIMOES DE SOUZA | Periodo 2/2026 processado em 1.33s
+[2026-03-09 09:04:01.013] | INFO     | [_process_sync_group] [DELTA] THIAGO MONTEIRO (01/2026): 1 novos, 0 atualizados.
+[2026-03-09 09:04:01.513] | ERROR    | [upsert_pedidos] [SUPABASE] Erro no upsert: {'message': 'invalid input syntax for type date: ""', 'code': '22007', 'hint': None, 'details': None}
+[2026-03-09 09:04:01.516] | ERROR    | [_process_sync_group] [FAIL] THIAGO MONTEIRO | Falha no envio do lote para 01/2026.
+[2026-03-09 09:04:01.801] | INFO     | [_process_sync_group] [DELTA] RODRIGO FREIRE (2/2026): 25 novos, 0 atualizados.
+[2026-03-09 09:04:03.098] | INFO     | [_process_sync_group] [DONE] RODRIGO FREIRE | Periodo 2/2026 processado em 1.34s
+[2026-03-09 09:04:03.142] | INFO     | [_process_sync_group] [DELTA] LEIDIANE TEIXEIRA COSTA (2/2026): 4 novos, 0 atualizados.
+[2026-03-09 09:04:04.437] | INFO     | [_process_sync_group] [DONE] LEIDIANE TEIXEIRA COSTA | Periodo 2/2026 processado em 1.34s
+[2026-03-09 09:04:04.486] | INFO     | [_process_sync_group] [DELTA] WILLIAN DAVID RODRIGUES CARVALHO (2/2026): 6 novos, 0 atualizados.
+[2026-03-09 09:04:05.782] | INFO     | [_process_sync_group] [DONE] WILLIAN DAVID RODRIGUES CARVALHO | Periodo 2/2026 processado em 1.34s
+[2026-03-09 09:04:05.827] | INFO     | [_process_sync_group] [DELTA] LEONARDO APARECIDO DE MORAES (2/2026): 15 novos, 0 atualizados.
+[2026-03-09 09:04:07.145] | INFO     | [_process_sync_group] [DONE] LEONARDO APARECIDO DE MORAES | Periodo 2/2026 processado em 1.36s
+[2026-03-09 09:04:07.191] | INFO     | [_process_sync_group] [DELTA] THIAGO MONTEIRO (2/2026): 10 novos, 0 atualizados.
+[2026-03-09 09:04:08.506] | INFO     | [_process_sync_group] [DONE] THIAGO MONTEIRO | Periodo 2/2026 processado em 1.36s
+[2026-03-09 09:04:08.552] | INFO     | [_process_sync_group] [DELTA] JOARES ALVES DOS SANTOS (2/2026): 37 novos, 0 atualizados.
+[2026-03-09 09:04:09.882] | INFO     | [_process_sync_group] [DONE] JOARES ALVES DOS SANTOS | Periodo 2/2026 processado em 1.37s
+[2026-03-09 09:04:09.931] | INFO     | [_process_sync_group] [DELTA] GABRIEL BARRETO (2/2026): 5 novos, 0 atualizados.
+[2026-03-09 09:04:11.229] | INFO     | [_process_sync_group] [DONE] GABRIEL BARRETO | Periodo 2/2026 processado em 1.34s
+[2026-03-09 09:04:11.275] | INFO     | [_process_sync_group] [DELTA] EBER VIEIRA (2/2026): 28 novos, 0 atualizados.
+[2026-03-09 09:04:12.601] | INFO     | [_process_sync_group] [DONE] EBER VIEIRA | Periodo 2/2026 processado em 1.37s
+[2026-03-09 09:04:12.646] | INFO     | [_process_sync_group] [DELTA] SILAS ANTONIO SIMOES DE SOUZA (2/2026): 74 novos, 0 atualizados.
+[2026-03-09 09:04:13.994] | INFO     | [_process_sync_group] [DONE] SILAS ANTONIO SIMOES DE SOUZA | Periodo 2/2026 processado em 1.39s
+[2026-03-09 09:04:14.042] | INFO     | [_process_sync_group] [DELTA] DANIEL SOUZA DA SILVA (2/2026): 3 novos, 0 atualizados.
+[2026-03-09 09:04:15.337] | INFO     | [_process_sync_group] [DONE] DANIEL SOUZA DA SILVA | Periodo 2/2026 processado em 1.34s
+[2026-03-09 09:04:15.379] | INFO     | [_process_sync_group] [DELTA] ISAQUE CARVALHO DO ESPIRITO SANTOS (2/2026): 9 novos, 0 atualizados.
+[2026-03-09 09:04:16.772] | INFO     | [_process_sync_group] [DONE] ISAQUE CARVALHO DO ESPIRITO SANTOS | Periodo 2/2026 processado em 1.43s
+[2026-03-09 09:04:16.815] | INFO     | [_process_sync_group] [DELTA] ROBERTA SANTAS (2/2026): 3 novos, 0 atualizados.

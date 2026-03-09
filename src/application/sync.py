@@ -58,6 +58,11 @@ class SyncService:
                 ano_ref = 2026
                 mes_ref = "01"
             
+            # ---> ADICIONE ESTAS DUAS LINHAS AQUI <---
+            ped["mes_referencia"] = mes_ref
+            ped["ano_referencia"] = ano_ref
+            # -----------------------------------------
+
             chave = (vendedor, mes_ref, ano_ref)
             if chave not in grupos:
                 grupos[chave] = []
