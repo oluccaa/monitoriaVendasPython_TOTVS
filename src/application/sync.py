@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 class SyncService:
     def __init__(self, repo: 'DatabaseRepository', client: 'SupabaseRepository'):
         """
-        Serviço de sincronização assíncrona responsável por calcular diferenças entre
+        Servico de sincronizacao assincrona responsavel por calcular diferencas entre
         o TOTVS e o banco de dados final via cache local em paralelo.
         """
         self.repo = repo
@@ -21,7 +21,7 @@ class SyncService:
         self.max_batch_size = 200
 
     def _gerar_hash_pedido(self, pedido: Dict[str, Any]) -> str:
-        """Gera um hash MD5 baseado nos valores críticos para detectar alterações."""
+        """Gera um hash MD5 baseado nos valores criticos para detectar alteracoes."""
         orderid = str(pedido.get('orderid', '')).strip()
         issuedate = str(pedido.get('issuedate', '')).strip()
         amount = str(pedido.get('amount', 0.0)).strip()
@@ -33,8 +33,8 @@ class SyncService:
 
     async def process_totvs_payload(self, pedidos_totvs: List[Dict[str, Any]]):
         """
-        Orquestra o processamento do payload bruto do TOTVS de forma ASSÍNCRONA,
-        realizando o agrupamento por vendedor e processando todos os grupos simultaneamente.
+        Orquestra o processamento do payload bruto do TOTVS de forma ASSINCRONA,
+        protegendo o limite de sockets do Windows com um Semaforo.
         """
         start_time = time.perf_counter()
         logger.info("[SYNC] Iniciando processamento concorrente de payload TOTVS.")
@@ -43,7 +43,7 @@ class SyncService:
             logger.warning("[SYNC] Payload vazio recebido. Operacao abortada.")
             return
 
-        # Executa a sincronização de vendedores em uma thread separada para não travar o loop
+        # Executa a sincronizacao de vendedores em uma thread separada para nao travar o loop
         await asyncio.to_thread(self.client.upsert_vendedores, pedidos_totvs)
 
         grupos = {}
@@ -70,14 +70,22 @@ class SyncService:
             ped["id_unico_linha"] = ped.get("orderid")
             grupos[chave].append(ped)
 
-        # CRIAÇÃO DAS TASKS PARALELAS
-        # Em vez de processar um vendedor por vez, criamos uma lista de tarefas (tasks)
+        # ---> O SEGREDO ESTA AQUI: SEMAFORO DE CONCORRENCIA <---
+        # Limita a 5 grupos processados simultaneamente. Protege contra WinError 10035 e Rate Limits.
+        sem = asyncio.Semaphore(5)
+
+        async def process_with_semaphore(v, m, a, p):
+            # O "async with sem:" garante que no maximo 5 execucoes passem desta linha ao mesmo tempo
+            async with sem:
+                await self._process_sync_group(v, m, a, p)
+
+        # CRIAÇÃO DAS TASKS PARALELAS COM LIMITE
         tasks = [
-            self._process_sync_group(vendedor, mes_ref, ano_ref, pedidos_grupo)
+            process_with_semaphore(vendedor, mes_ref, ano_ref, pedidos_grupo)
             for (vendedor, mes_ref, ano_ref), pedidos_grupo in grupos.items()
         ]
 
-        # Executa TODAS as tarefas ao mesmo tempo
+        # Executa as tarefas respeitando o pedágio do semaforo
         if tasks:
             await asyncio.gather(*tasks)
 
@@ -85,11 +93,10 @@ class SyncService:
         logger.info(f"[SYNC] Sincronizacao do lote completo finalizada em {duracao:.2f}s")
 
     async def _process_sync_group(self, vendedor: str, mes_ref: str, ano_ref: int, pedidos_atuais: List[Dict[str, Any]]):
-        """Calcula o Delta e realiza o envio para o Supabase de forma assíncrona."""
+        """Calcula o Delta e realiza o envio para o Supabase de forma assincrona."""
         start_time = time.perf_counter()
         
         try:
-            # Busca cache em thread separada para não bloquear outras tarefas
             cache = await asyncio.to_thread(self.repo.get_cache_by_periodo, vendedor, mes_ref, ano_ref)
             pedidos_payload = []
             stats = {"new": 0, "upd": 0}
@@ -115,7 +122,6 @@ class SyncService:
 
             logger.info(f"[DELTA] {vendedor} ({mes_ref}/{ano_ref}): {stats['new']} novos, {stats['upd']} atualizados.")
 
-            # Registro de log assíncrono
             log_id = await asyncio.to_thread(
                 self.client.criar_log_importacao,
                 vendedor, mes_ref, f"TOTVS_API_{vendedor}_{mes_ref}_{ano_ref}", len(pedidos_payload)
@@ -129,7 +135,6 @@ class SyncService:
             sucesso_total = True
 
             for chunk in chunks:
-                # Dispara o upsert no banco e espera concluir
                 upsert_ok = await asyncio.to_thread(self.client.upsert_pedidos, chunk)
                 
                 if upsert_ok:
@@ -166,7 +171,6 @@ class SyncService:
         
         if to_upsert:
             try:
-                # O cache local só é atualizado para registros que foram confirmados
                 await asyncio.to_thread(self.repo.update_batch, [], to_upsert)
             except Exception as e:
                 logger.error(f"[CACHE] Falha ao persistir alteracoes locais: {e}")

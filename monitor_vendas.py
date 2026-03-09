@@ -4,6 +4,7 @@ import sys
 import time
 import os
 import signal
+import asyncio  # <-- Importante: Adicionado para rodar o motor assincrono
 from pathlib import Path
 
 # ==============================================================================
@@ -37,7 +38,7 @@ def handle_exit_signal(sig, frame):
     """Captura sinais de interrupção (Ctrl+C, encerramento do sistema)"""
     global poller_instance
     if poller_instance:
-        logger.info("[SISTEMA] Sinal de desligamento recebido. Parando motor...")
+        logger.info("[SISTEMA] Sinal de desligamento recebido. Parando motor assincrono...")
         poller_instance.stop()
     sys.exit(0)
 
@@ -118,8 +119,10 @@ def run_system():
     # 3. EXECUCAO DO LOOP PRINCIPAL
     # ==========================================================================
     try:
-        logger.info(f"[SISTEMA] Polling a cada {CONFIG.POLLING_INTERVAL}s. Iniciando motor...")
-        poller_instance.start()
+        logger.info(f"[SISTEMA] Polling a cada {CONFIG.POLLING_INTERVAL}s. Iniciando motor assincrono...")
+        
+        # O PULO DO GATO: Delega a execucao infinita para o Event Loop do Asyncio
+        asyncio.run(poller_instance.start())
         
     except Exception as e:
         logger.critical(f"[SISTEMA] Erro inesperado no loop principal: {e}", exc_info=True)
