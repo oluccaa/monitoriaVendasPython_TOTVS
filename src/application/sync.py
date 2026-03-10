@@ -50,29 +50,43 @@ class SyncService:
         import os
         
         pedidos_ignorados = set()
-        caminho_blacklist = "ignorar_pedidos.json"
+        
+        diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+        diretorio_raiz = os.path.dirname(os.path.dirname(diretorio_atual))
+        caminho_blacklist = os.path.join(diretorio_raiz, "ignorar_pedidos.json")
         
         if os.path.exists(caminho_blacklist):
             try:
                 with open(caminho_blacklist, "r", encoding="utf-8") as f:
-                    pedidos_ignorados = set(json.load(f))
+                    dados_json = json.load(f)
+                    total_linhas_json = len(dados_json)
+                    
+                    # Limpa os espaços, converte pra string de 6 digitos e joga no Set (removendo as duplicatas)
+                    pedidos_ignorados = {str(pedido).strip().zfill(6) for pedido in dados_json}
+                    
+                    duplicados_removidos = total_linhas_json - len(pedidos_ignorados)
+                    
+                logger.info(f"[SYNC] Blacklist carregada com SUCESSO. {len(pedidos_ignorados)} pedidos unicos lidos (Ignoradas {duplicados_removidos} duplicatas no JSON).")
             except Exception as e:
                 logger.error(f"[SYNC] Falha ao ler a blacklist {caminho_blacklist}: {e}")
+        else:
+            logger.warning(f"[SYNC] ALERTA: Arquivo de blacklist NAO ENCONTRADO em: {caminho_blacklist}")
 
         # Filtra os pedidos brutos
         pedidos_filtrados = []
         for ped in pedidos_totvs:
-            orderid = str(ped.get("orderid", "")).strip()
+            orderid = str(ped.get("orderid", "")).strip().zfill(6)
+            
             if orderid in pedidos_ignorados:
-                logger.info(f"[SYNC] Pedido {orderid} ignorado (Consta na Blacklist).")
+                logger.info(f"[SYNC] Pedido {orderid} bloqueado (Consta na Blacklist).")
                 continue
+                
             pedidos_filtrados.append(ped)
 
         if not pedidos_filtrados:
-            logger.warning("[SYNC] Todos os pedidos do lote foram barrados pela Blacklist.")
+            logger.warning("[SYNC] Todos os pedidos deste lote foram barrados pela Blacklist.")
             return
 
-        # Substitui a lista original pela filtrada para seguir o fluxo normal
         pedidos_totvs = pedidos_filtrados
         # =================================================================
 
