@@ -11566,3 +11566,136 @@ TypeError: object of type 'coroutine' has no len()
 [2026-03-10 09:03:31.296] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 2.49s
 [2026-03-10 09:03:31.298] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 5.98s.
 [2026-03-10 09:03:31.300] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
+[2026-03-10 09:04:31.781] | INFO     | [_run_cycle] [POLLER] Iniciando ciclo de verificacao de novos pedidos.
+[2026-03-10 09:04:31.783] | INFO     | [fetch_sales_orders] [TOTVS] Iniciando busca assincrona de pedidos na API REST.
+[2026-03-10 09:04:32.473] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 1 processada. Registros: 100.
+[2026-03-10 09:04:32.821] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 2 processada. Registros: 100.
+[2026-03-10 09:04:33.135] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 3 processada. Registros: 100.
+[2026-03-10 09:04:33.481] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 4 processada. Registros: 100.
+[2026-03-10 09:04:33.803] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 5 processada. Registros: 100.
+[2026-03-10 09:04:34.110] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 6 processada. Registros: 100.
+[2026-03-10 09:04:34.421] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 7 processada. Registros: 100.
+[2026-03-10 09:04:34.711] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 8 processada. Registros: 100.
+[2026-03-10 09:04:34.980] | INFO     | [fetch_sales_orders] [TOTVS] Pagina 9 processada. Registros: 46.
+[2026-03-10 09:04:34.990] | INFO     | [fetch_sales_orders] [TOTVS] Operacao concluida em 3.2071s. Total bruto: 846 registros.
+[2026-03-10 09:04:34.993] | INFO     | [_filtrar_payload] [TOTVS] Filtro aplicado (2026-03).
+[2026-03-10 09:04:34.996] | INFO     | [_run_cycle] [POLLER] 323 pedidos carregados. Iniciando SyncService.
+[2026-03-10 09:04:34.998] | INFO     | [process_totvs_payload] [SYNC] Iniciando processamento concorrente de payload TOTVS.
+[2026-03-10 09:04:35.009] | INFO     | [process_totvs_payload] [SYNC] Blacklist carregada com SUCESSO. 364 pedidos unicos lidos (Ignoradas 0 duplicatas no JSON).
+[2026-03-10 09:04:35.011] | INFO     | [process_totvs_payload] [SYNC] Pedido 000585 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.013] | INFO     | [process_totvs_payload] [SYNC] Pedido 000609 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.015] | INFO     | [process_totvs_payload] [SYNC] Pedido 000610 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.017] | INFO     | [process_totvs_payload] [SYNC] Pedido 000611 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.019] | INFO     | [process_totvs_payload] [SYNC] Pedido 000612 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.022] | INFO     | [process_totvs_payload] [SYNC] Pedido 000613 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.024] | INFO     | [process_totvs_payload] [SYNC] Pedido 000614 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.026] | INFO     | [process_totvs_payload] [SYNC] Pedido 000615 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.028] | INFO     | [process_totvs_payload] [SYNC] Pedido 000617 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.030] | INFO     | [process_totvs_payload] [SYNC] Pedido 000618 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.032] | INFO     | [process_totvs_payload] [SYNC] Pedido 000619 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.034] | INFO     | [process_totvs_payload] [SYNC] Pedido 000621 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.036] | INFO     | [process_totvs_payload] [SYNC] Pedido 000623 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.038] | INFO     | [process_totvs_payload] [SYNC] Pedido 000626 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.041] | INFO     | [process_totvs_payload] [SYNC] Pedido 000627 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.043] | INFO     | [process_totvs_payload] [SYNC] Pedido 000629 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.045] | INFO     | [process_totvs_payload] [SYNC] Pedido 000639 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.047] | INFO     | [process_totvs_payload] [SYNC] Pedido 000641 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.049] | INFO     | [process_totvs_payload] [SYNC] Pedido 000645 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.051] | INFO     | [process_totvs_payload] [SYNC] Pedido 000647 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.053] | INFO     | [process_totvs_payload] [SYNC] Pedido 000650 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.055] | INFO     | [process_totvs_payload] [SYNC] Pedido 000651 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.057] | INFO     | [process_totvs_payload] [SYNC] Pedido 000652 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.059] | INFO     | [process_totvs_payload] [SYNC] Pedido 000655 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.061] | INFO     | [process_totvs_payload] [SYNC] Pedido 000657 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.063] | INFO     | [process_totvs_payload] [SYNC] Pedido 000659 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.065] | INFO     | [process_totvs_payload] [SYNC] Pedido 000666 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.067] | INFO     | [process_totvs_payload] [SYNC] Pedido 000670 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.069] | INFO     | [process_totvs_payload] [SYNC] Pedido 000673 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.071] | INFO     | [process_totvs_payload] [SYNC] Pedido 000677 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.073] | INFO     | [process_totvs_payload] [SYNC] Pedido 000684 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.075] | INFO     | [process_totvs_payload] [SYNC] Pedido 000686 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.077] | INFO     | [process_totvs_payload] [SYNC] Pedido 000697 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.079] | INFO     | [process_totvs_payload] [SYNC] Pedido 000698 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.081] | INFO     | [process_totvs_payload] [SYNC] Pedido 000699 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.083] | INFO     | [process_totvs_payload] [SYNC] Pedido 000701 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.086] | INFO     | [process_totvs_payload] [SYNC] Pedido 000708 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.088] | INFO     | [process_totvs_payload] [SYNC] Pedido 000711 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.090] | INFO     | [process_totvs_payload] [SYNC] Pedido 000714 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.092] | INFO     | [process_totvs_payload] [SYNC] Pedido 000716 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.094] | INFO     | [process_totvs_payload] [SYNC] Pedido 000717 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.096] | INFO     | [process_totvs_payload] [SYNC] Pedido 000720 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.098] | INFO     | [process_totvs_payload] [SYNC] Pedido 000722 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.100] | INFO     | [process_totvs_payload] [SYNC] Pedido 000723 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.102] | INFO     | [process_totvs_payload] [SYNC] Pedido 000724 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.104] | INFO     | [process_totvs_payload] [SYNC] Pedido 000725 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.106] | INFO     | [process_totvs_payload] [SYNC] Pedido 000726 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.108] | INFO     | [process_totvs_payload] [SYNC] Pedido 000730 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.110] | INFO     | [process_totvs_payload] [SYNC] Pedido 000738 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.112] | INFO     | [process_totvs_payload] [SYNC] Pedido 000747 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.114] | INFO     | [process_totvs_payload] [SYNC] Pedido 000748 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.116] | INFO     | [process_totvs_payload] [SYNC] Pedido 000749 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.118] | INFO     | [process_totvs_payload] [SYNC] Pedido 000750 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.120] | INFO     | [process_totvs_payload] [SYNC] Pedido 000751 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.122] | INFO     | [process_totvs_payload] [SYNC] Pedido 000753 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.124] | INFO     | [process_totvs_payload] [SYNC] Pedido 000754 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.126] | INFO     | [process_totvs_payload] [SYNC] Pedido 000755 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.128] | INFO     | [process_totvs_payload] [SYNC] Pedido 000756 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.130] | INFO     | [process_totvs_payload] [SYNC] Pedido 000757 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.132] | INFO     | [process_totvs_payload] [SYNC] Pedido 000758 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.135] | INFO     | [process_totvs_payload] [SYNC] Pedido 000760 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.137] | INFO     | [process_totvs_payload] [SYNC] Pedido 000766 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.139] | INFO     | [process_totvs_payload] [SYNC] Pedido 000767 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.141] | INFO     | [process_totvs_payload] [SYNC] Pedido 000769 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.143] | INFO     | [process_totvs_payload] [SYNC] Pedido 000770 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.145] | INFO     | [process_totvs_payload] [SYNC] Pedido 000772 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.147] | INFO     | [process_totvs_payload] [SYNC] Pedido 000776 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.149] | INFO     | [process_totvs_payload] [SYNC] Pedido 000778 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.151] | INFO     | [process_totvs_payload] [SYNC] Pedido 000779 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.154] | INFO     | [process_totvs_payload] [SYNC] Pedido 000782 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.156] | INFO     | [process_totvs_payload] [SYNC] Pedido 000785 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.158] | INFO     | [process_totvs_payload] [SYNC] Pedido 000793 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.160] | INFO     | [process_totvs_payload] [SYNC] Pedido 000796 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.162] | INFO     | [process_totvs_payload] [SYNC] Pedido 000797 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.164] | INFO     | [process_totvs_payload] [SYNC] Pedido 000798 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.166] | INFO     | [process_totvs_payload] [SYNC] Pedido 000799 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.168] | INFO     | [process_totvs_payload] [SYNC] Pedido 000800 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.170] | INFO     | [process_totvs_payload] [SYNC] Pedido 000802 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.172] | INFO     | [process_totvs_payload] [SYNC] Pedido 000803 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.174] | INFO     | [process_totvs_payload] [SYNC] Pedido 000804 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.176] | INFO     | [process_totvs_payload] [SYNC] Pedido 000807 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.178] | INFO     | [process_totvs_payload] [SYNC] Pedido 000814 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.180] | INFO     | [process_totvs_payload] [SYNC] Pedido 000815 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.183] | INFO     | [process_totvs_payload] [SYNC] Pedido 000821 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.185] | INFO     | [process_totvs_payload] [SYNC] Pedido 000822 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.187] | INFO     | [process_totvs_payload] [SYNC] Pedido 000826 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.189] | INFO     | [process_totvs_payload] [SYNC] Pedido 000827 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.191] | INFO     | [process_totvs_payload] [SYNC] Pedido 000831 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.194] | INFO     | [process_totvs_payload] [SYNC] Pedido 000837 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.196] | INFO     | [process_totvs_payload] [SYNC] Pedido 000838 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.198] | INFO     | [process_totvs_payload] [SYNC] Pedido 000840 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.200] | INFO     | [process_totvs_payload] [SYNC] Pedido 000841 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.202] | INFO     | [process_totvs_payload] [SYNC] Pedido 000848 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.204] | INFO     | [process_totvs_payload] [SYNC] Pedido 000863 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.206] | INFO     | [process_totvs_payload] [SYNC] Pedido 000879 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.208] | INFO     | [process_totvs_payload] [SYNC] Pedido 000887 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.210] | INFO     | [process_totvs_payload] [SYNC] Pedido 000888 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.212] | INFO     | [process_totvs_payload] [SYNC] Pedido 000901 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.214] | INFO     | [process_totvs_payload] [SYNC] Pedido 000903 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.216] | INFO     | [process_totvs_payload] [SYNC] Pedido 000911 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.218] | INFO     | [process_totvs_payload] [SYNC] Pedido 000914 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.220] | INFO     | [process_totvs_payload] [SYNC] Pedido 000917 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.222] | INFO     | [process_totvs_payload] [SYNC] Pedido 000921 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.224] | INFO     | [process_totvs_payload] [SYNC] Pedido 000923 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.227] | INFO     | [process_totvs_payload] [SYNC] Pedido 000927 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.229] | INFO     | [process_totvs_payload] [SYNC] Pedido 000930 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.231] | INFO     | [process_totvs_payload] [SYNC] Pedido 000938 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.233] | INFO     | [process_totvs_payload] [SYNC] Pedido 000951 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.235] | INFO     | [process_totvs_payload] [SYNC] Pedido 000969 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.237] | INFO     | [process_totvs_payload] [SYNC] Pedido 000975 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.239] | INFO     | [process_totvs_payload] [SYNC] Pedido 000981 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.242] | INFO     | [process_totvs_payload] [SYNC] Pedido 000984 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.244] | INFO     | [process_totvs_payload] [SYNC] Pedido 000987 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:35.246] | INFO     | [process_totvs_payload] [SYNC] Pedido 001031 bloqueado (Consta na Blacklist).
+[2026-03-10 09:04:36.336] | INFO     | [process_totvs_payload] [SYNC] Sincronizacao do lote completo finalizada em 1.34s
+[2026-03-10 09:04:36.339] | INFO     | [_run_cycle] [POLLER] Ciclo finalizado em 4.56s.
+[2026-03-10 09:04:36.341] | INFO     | [_sleep_interruptible] [POLLER] Aguardando 60s para a proxima verificacao...
