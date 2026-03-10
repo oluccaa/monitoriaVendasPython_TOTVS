@@ -43,6 +43,39 @@ class SyncService:
             logger.warning("[SYNC] Payload vazio recebido. Operacao abortada.")
             return
 
+        # =================================================================
+        # 1. LÓGICA DE BLACKLIST (ignorar_pedidos.json)
+        # =================================================================
+        import json
+        import os
+        
+        pedidos_ignorados = set()
+        caminho_blacklist = "ignorar_pedidos.json"
+        
+        if os.path.exists(caminho_blacklist):
+            try:
+                with open(caminho_blacklist, "r", encoding="utf-8") as f:
+                    pedidos_ignorados = set(json.load(f))
+            except Exception as e:
+                logger.error(f"[SYNC] Falha ao ler a blacklist {caminho_blacklist}: {e}")
+
+        # Filtra os pedidos brutos
+        pedidos_filtrados = []
+        for ped in pedidos_totvs:
+            orderid = str(ped.get("orderid", "")).strip()
+            if orderid in pedidos_ignorados:
+                logger.info(f"[SYNC] Pedido {orderid} ignorado (Consta na Blacklist).")
+                continue
+            pedidos_filtrados.append(ped)
+
+        if not pedidos_filtrados:
+            logger.warning("[SYNC] Todos os pedidos do lote foram barrados pela Blacklist.")
+            return
+
+        # Substitui a lista original pela filtrada para seguir o fluxo normal
+        pedidos_totvs = pedidos_filtrados
+        # =================================================================
+
         # Executa a sincronizacao de vendedores em uma thread separada para nao travar o loop
         await asyncio.to_thread(self.client.upsert_vendedores, pedidos_totvs)
 
@@ -72,22 +105,32 @@ class SyncService:
 
         # ---> O SEGREDO ESTA AQUI: SEMAFORO DE CONCORRENCIA <---
         # Limita a 5 grupos processados simultaneamente. Protege contra WinError 10035 e Rate Limits.
-        sem = asyncio.Semaphore(5)
+        sem = asyncio.Semaphore(3)
 
-        async def process_with_semaphore(v, m, a, p):
+        async def process_with_semaphore(vendedor, mes_ref, ano_ref, pedidos_grupo):
             # O "async with sem:" garante que no maximo 5 execucoes passem desta linha ao mesmo tempo
             async with sem:
-                await self._process_sync_group(v, m, a, p)
+                try:
+                    # Se _process_sync_group for uma função síncrona (def normal),
+                    # use: await asyncio.to_thread(self._process_sync_group, vendedor, mes_ref, ano_ref, pedidos_grupo)
+                    # Se já for async (async def), mantenha como está abaixo, 
+                    # mas lembre-se de usar to_thread nas chamadas do Supabase lá dentro!
+                    await self._process_sync_group(vendedor, mes_ref, ano_ref, pedidos_grupo)
+                except Exception as e:
+                    logger.error(f"[SYNC] Erro critico na thread de {vendedor} ({mes_ref}/{ano_ref}): {e}")
 
         # CRIAÇÃO DAS TASKS PARALELAS COM LIMITE
+        # O uso do create_task é a forma mais segura e performática de empilhar rotinas no asyncio
         tasks = [
-            process_with_semaphore(vendedor, mes_ref, ano_ref, pedidos_grupo)
+            asyncio.create_task(process_with_semaphore(vendedor, mes_ref, ano_ref, pedidos_grupo))
             for (vendedor, mes_ref, ano_ref), pedidos_grupo in grupos.items()
         ]
 
-        # Executa as tarefas respeitando o pedágio do semaforo
+        # Executa as tarefas respeitando o pedágio do semáforo
         if tasks:
-            await asyncio.gather(*tasks)
+            # return_exceptions=True é VITAL no Windows:
+            # Se a conexão de 1 vendedor cair, as outras 4 do semáforo continuam rodando normalmente.
+            await asyncio.gather(*tasks, return_exceptions=True)
 
         duracao = time.perf_counter() - start_time
         logger.info(f"[SYNC] Sincronizacao do lote completo finalizada em {duracao:.2f}s")
@@ -97,6 +140,7 @@ class SyncService:
         start_time = time.perf_counter()
         
         try:
+            # 1. Protecao para o SQLite Local
             cache = await asyncio.to_thread(self.repo.get_cache_by_periodo, vendedor, mes_ref, ano_ref)
             pedidos_payload = []
             stats = {"new": 0, "upd": 0}
@@ -122,14 +166,20 @@ class SyncService:
 
             logger.info(f"[DELTA] {vendedor} ({mes_ref}/{ano_ref}): {stats['new']} novos, {stats['upd']} atualizados.")
 
+            # Cria o Log no Supabase
             log_id = await asyncio.to_thread(
                 self.client.criar_log_importacao,
                 vendedor, mes_ref, f"TOTVS_API_{vendedor}_{mes_ref}_{ano_ref}", len(pedidos_payload)
             )
 
-            if log_id:
-                for p in pedidos_payload:
-                    p["importacao_id"] = log_id
+            # 2. Protecao contra Log_ID Nulo (Banco fora do ar)
+            if not log_id:
+                logger.error(f"[FAIL] {vendedor} | Nao foi possivel criar o Log_ID. Abortando envio deste grupo.")
+                return
+
+            # Injeta o ID da importacao nos pedidos
+            for p in pedidos_payload:
+                p["importacao_id"] = log_id
 
             chunks = [pedidos_payload[i:i + self.max_batch_size] for i in range(0, len(pedidos_payload), self.max_batch_size)]
             sucesso_total = True
@@ -145,6 +195,79 @@ class SyncService:
                     break 
 
             status_final = "SUCESSO" if sucesso_total else "ERRO_PARCIAL"
+            
+            # Finaliza o log no Supabase
+            await asyncio.to_thread(self.client.finalizar_log_importacao, log_id, status_final)
+
+            duracao = time.perf_counter() - start_time
+            if sucesso_total:
+                logger.info(f"[DONE] {vendedor} | Periodo {mes_ref}/{ano_ref} processado em {duracao:.2f}s")
+
+        except Exception as e:
+            logger.error(f"[FATAL] Erro no grupo {vendedor} ({mes_ref}/{ano_ref}): {str(e)}", exc_info=True)
+            
+    async def _process_sync_group(self, vendedor: str, mes_ref: str, ano_ref: int, pedidos_atuais: List[Dict[str, Any]]):
+        """Calcula o Delta e realiza o envio para o Supabase de forma assincrona."""
+        start_time = time.perf_counter()
+        
+        try:
+            # 1. Protecao para o SQLite Local
+            cache = await asyncio.to_thread(self.repo.get_cache_by_periodo, vendedor, mes_ref, ano_ref)
+            pedidos_payload = []
+            stats = {"new": 0, "upd": 0}
+
+            for ped in pedidos_atuais:
+                id_l = ped["id_unico_linha"]
+                curr_hash = ped["_hash"]
+                cached_hash = cache.get(id_l)
+
+                if not cached_hash:
+                    ped["tipo_registro"] = "NOVO"
+                    ped["status"] = "ATIVO"
+                    pedidos_payload.append(ped)
+                    stats["new"] += 1
+                elif cached_hash != curr_hash:
+                    ped["tipo_registro"] = "ATUALIZADO"
+                    ped["status"] = "ATIVO"
+                    pedidos_payload.append(ped)
+                    stats["upd"] += 1
+
+            if not pedidos_payload:
+                return
+
+            logger.info(f"[DELTA] {vendedor} ({mes_ref}/{ano_ref}): {stats['new']} novos, {stats['upd']} atualizados.")
+
+            # Cria o Log no Supabase
+            log_id = await asyncio.to_thread(
+                self.client.criar_log_importacao,
+                vendedor, mes_ref, f"TOTVS_API_{vendedor}_{mes_ref}_{ano_ref}", len(pedidos_payload)
+            )
+
+            # 2. Protecao contra Log_ID Nulo (Banco fora do ar)
+            if not log_id:
+                logger.error(f"[FAIL] {vendedor} | Nao foi possivel criar o Log_ID. Abortando envio deste grupo.")
+                return
+
+            # Injeta o ID da importacao nos pedidos
+            for p in pedidos_payload:
+                p["importacao_id"] = log_id
+
+            chunks = [pedidos_payload[i:i + self.max_batch_size] for i in range(0, len(pedidos_payload), self.max_batch_size)]
+            sucesso_total = True
+
+            for chunk in chunks:
+                upsert_ok = await asyncio.to_thread(self.client.upsert_pedidos, chunk)
+                
+                if upsert_ok:
+                    await self._persist_changes(chunk, vendedor, mes_ref, ano_ref)
+                else:
+                    sucesso_total = False
+                    logger.error(f"[FAIL] {vendedor} | Falha no envio do lote para {mes_ref}/{ano_ref}.")
+                    break 
+
+            status_final = "SUCESSO" if sucesso_total else "ERRO_PARCIAL"
+            
+            # Finaliza o log no Supabase
             await asyncio.to_thread(self.client.finalizar_log_importacao, log_id, status_final)
 
             duracao = time.perf_counter() - start_time

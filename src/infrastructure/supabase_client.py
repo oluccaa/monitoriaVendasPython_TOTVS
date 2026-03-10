@@ -23,38 +23,47 @@ class SupabaseRepository:
             raise
 
     def criar_log_importacao(self, vendedor: str, mes: str, arquivo: str, qtd: int) -> Optional[str]:
-        """
-        Cria o log e retorna o UUID (string) gerado pelo banco.
-        """
-        try:
-            data = {
-                "vendedor_nome": vendedor,
-                "mes_referencia": str(mes),
-                "arquivo_nome": arquivo,
-                "linhas_processadas": qtd,
-                "status": "PROCESSANDO",
-                "data_processamento": time.strftime('%Y-%m-%d %H:%M:%S')
-            }
-            res = self.client.table(self.table_logs).insert(data).execute()
-            
-            if res.data and len(res.data) > 0:
-                return res.data[0]['id']
-            return None
-        except Exception as e:
-            logger.error(f"[SUPABASE] Erro ao criar log de importacao: {e}")
-            return None
+        """Cria o log e retorna o UUID (string) gerado pelo banco."""
+        data = {
+            "vendedor_nome": vendedor,
+            "arquivo_nome": arquivo,
+            "mes_referencia": str(mes),
+            "linhas_processadas": qtd,
+            "status": "PROCESSANDO",
+            "data_processamento": time.strftime('%Y-%m-%d %H:%M:%S')
+        }
+        
+        for tentativa in range(3):
+            try:
+                res = self.client.table(self.table_logs).insert(data).execute()
+                if res.data and len(res.data) > 0:
+                    return res.data[0]['id']
+                return None
+            except Exception as e:
+                if "10035" in str(e) and tentativa < 2:
+                    time.sleep(1.5) # Pausa para o Windows liberar a porta de rede
+                    continue
+                logger.error(f"[SUPABASE] Erro ao criar log de importacao: {e}")
+                return None
 
     def finalizar_log_importacao(self, log_id: str, status: str, erro: str = None):
         """Atualiza o status do log de importação ao final do processo."""
         if not log_id: return
-        try:
-            update_data = {"status": status}
-            if erro:
-                update_data["mensagem_erro"] = erro[:500] 
+        
+        update_data = {"status": status}
+        if erro:
+            update_data["mensagem_erro"] = erro[:500] 
 
-            self.client.table(self.table_logs).update(update_data).eq("id", log_id).execute()
-        except Exception as e:
-            logger.error(f"[SUPABASE] Erro ao finalizar log {log_id}: {e}")
+        for tentativa in range(3):
+            try:
+                self.client.table(self.table_logs).update(update_data).eq("id", log_id).execute()
+                return # Se deu certo, sai do loop
+            except Exception as e:
+                if "10035" in str(e) and tentativa < 2:
+                    time.sleep(1.5)
+                    continue
+                logger.error(f"[SUPABASE] Erro ao finalizar log {log_id}: {e}")
+                break
 
     def upsert_vendedores(self, pedidos: List[Dict[str, Any]]) -> bool:
         """
@@ -113,6 +122,7 @@ class SupabaseRepository:
         Envia pedidos mapeando exatamente para as colunas da tabela no Supabase.
         FILTRA DUPLICATAS no lote para evitar erro 21000.
         Utiliza 'id_unico_linha' como chave de conflito.
+        Possui sistema de retentativa para contornar gargalos de rede e WinError 10035.
         """
         if not pedidos: return True
 
@@ -120,19 +130,31 @@ class SupabaseRepository:
         ids_vistos = set() # Filtro de Duplicatas no Lote
 
         for p in pedidos:
-            # Obtém o orderid bruto da TOTVS
-            order_id = p.get("orderid")
+            # Obtém o orderid bruto da TOTVS e garante que é uma string limpa
+            order_id = str(p.get("orderid", "")).strip()
             if not order_id:
                 continue
 
             # Constrói o ID Único esperado pela constraint do banco de dados
             id_unico = p.get("id_unico_linha") or f"TOTVS-{order_id}"
             
-            # Se ja vimos esse ID neste mesmo lote, ignoramos a copia
+            # Se ja vimos esse ID neste mesmo lote, ignoramos a copia para evitar crash do banco
             if id_unico in ids_vistos:
                 continue
             
             ids_vistos.add(id_unico)
+
+            # Conversão SEGURA de valores financeiros (Evita crash se vier string vazia ou None da TOTVS)
+            try:
+                valor_pedido = float(p.get("amount") or 0.0)
+            except (ValueError, TypeError):
+                valor_pedido = 0.0
+
+            # Conversão SEGURA do ano de referência
+            try:
+                ano_ref = int(p.get("ano_referencia") or 2026)
+            except (ValueError, TypeError):
+                ano_ref = 2026
 
             # Montagem do Objeto com chaves IDÊNTICAS às colunas do PostgreSQL
             registro = {
@@ -142,11 +164,11 @@ class SupabaseRepository:
                 "cliente": p.get("customername"),
                 "vendedor_nome_origem": p.get("sellername"),
                 "vendedor_oficial": p.get("sellername"), # Espelhando o vendedor para a coluna auxiliar
-                "valor_pedido": float(p.get("amount", 0.0)),
-                "valor_pendente": float(p.get("amount", 0.0)), # Como é novo, o pendente é igual ao pedido inicialmente
+                "valor_pedido": valor_pedido,
+                "valor_pendente": valor_pedido, # Como é novo, o pendente é igual ao pedido inicialmente
                 "valor_comissao": 0.0, # Pode ser atualizado depois com o endpoint de comissões
                 "mes_referencia": str(p.get("mes_referencia", "")),
-                "ano_referencia": int(p.get("ano_referencia", 2026)),
+                "ano_referencia": ano_ref,
                 "status": p.get("status", "ATIVO"),
                 "tipo_registro": p.get("tipo_registro", "CORRENTE"),
                 "id_unico_linha": id_unico
@@ -154,19 +176,40 @@ class SupabaseRepository:
             
             pedidos_formatados.append(registro)
 
-        try:
-            # Upsert baseado na constraint unique "id_unico_linha" definida na tabela "vendas"
-            self.client.table(self.table_vendas).upsert(
-                pedidos_formatados, 
-                on_conflict="id_unico_linha"
-            ).execute()
-            
-            time.sleep(0.5) # Respeito ao Rate Limit da API do Supabase
+        # Se após o filtro não sobrou nada válido, reporta sucesso sem bater no banco
+        if not pedidos_formatados:
             return True
 
-        except Exception as e:
-            logger.error(f"[SUPABASE] Erro no upsert: {e}")
-            return False
+        # =================================================================
+        # SISTEMA DE RETENTATIVA (AUTO-HEALING CONTRA WINERROR 10035)
+        # =================================================================
+        max_tentativas = 3
+        
+        for tentativa in range(max_tentativas):
+            try:
+                # Upsert baseado na constraint unique "id_unico_linha" definida na tabela "vendas"
+                self.client.table(self.table_vendas).upsert(
+                    pedidos_formatados, 
+                    on_conflict="id_unico_linha"
+                ).execute()
+                
+                time.sleep(0.5) # Respeito ao Rate Limit da API do Supabase
+                return True
+
+            except Exception as e:
+                erro_msg = str(e)
+                
+                # Se for erro de rede/soquete do Windows (10035), recua, respira e tenta de novo
+                if "10035" in erro_msg and tentativa < max_tentativas - 1:
+                    logger.warning(f"[SUPABASE] Gargalo de rede (10035) no upsert. Tentativa {tentativa + 1}/{max_tentativas}. Aguardando 1.5s...")
+                    time.sleep(1.5)
+                    continue
+                
+                # Se não for erro 10035, ou se esgotaram as tentativas, reporta o erro definitivo
+                logger.error(f"[SUPABASE] Erro definitivo no upsert (Tentativa {tentativa + 1}): {erro_msg}")
+                return False
+                
+        return False
 
 # src/infrastructure/supabase_client.py
 
