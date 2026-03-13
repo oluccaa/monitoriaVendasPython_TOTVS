@@ -107,11 +107,27 @@ class TOTVSClient:
             filtro_data = f"{CONFIG.TARGET_YEAR}-{mes_formatado}"
             
         bloqueados_count = 0 # Contador para sabermos quantos foram barrados
+        status_ignorados_count = 0 # <-- Novo contador
         
         for item in raw_data:
             if not isinstance(item, dict) or not item.get("orderid"):
                 continue
             
+            # # ---> NOVA REGRA: Puxa o status e verifica se é " " <---
+            # # Usamos get("status") sem .strip() imediato para não matar o espaço em branco
+            # status_pedido = item.get("status") 
+            # if status_pedido != "L":
+            #     status_ignorados_count += 1
+            #     continue # Pula qualquer pedido que não tenha o status exato de "F"
+
+            # ---> NOVA REGRA: Puxa o status e verifica se é "L" ou "E" <---
+            # Usamos get("status") sem .strip() imediato para não matar o espaço em branco
+            status_pedido = item.get("status") 
+            
+            if status_pedido not in ["L", "E"]:
+                status_ignorados_count += 1
+                continue # Pula qualquer pedido que não tenha o status "L" ou "E"
+
             orderid = str(item.get("orderid")).strip()
             data_emissao = str(item.get("issuedate", "")).strip()
             
@@ -130,7 +146,8 @@ class TOTVSClient:
                 "sellerid": str(item.get("sellerid")).strip(),
                 "amount": float(item.get("amount", 0.0)),
                 "sellername": str(item.get("sellername", "DESCONHECIDO")).strip().upper(),
-                "customername": str(item.get("customername", "DESCONHECIDO")).strip().upper()
+                "customername": str(item.get("customername", "DESCONHECIDO")).strip().upper(),
+                "status_totvs": status_pedido # <-- NÃO ESQUEÇA DE ADICIONAR ISSO AQUI!
             })
             
         if filtro_data:
